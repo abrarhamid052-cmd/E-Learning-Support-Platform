@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link rel="stylesheet" href="styles.css"/><link rel="icon" href="logo.svg" type="image/svg+xml"/><script src="https://cdn.tailwindcss.com"></script><script src="tailwind.config.js"></script></head><body class="bg-surface font-body-md text-body-md text-on-surface min-h-screen flex flex-col"><header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(30,58,138,0.08)]"><div class="h-16 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm" href="home.html"><div class="brand-logo w-10 h-10"><img alt="شعار منصة دعم التعليم الإلكتروني" src="logo.svg"/></div><div class="hidden sm:flex flex-col leading-tight"><span class="brand-wordmark font-headline-sm text-headline-sm">منصة دعم التعليم الإلكتروني</span><span class="brand-tagline font-label-sm text-label-sm">إسناد لمسيرتك الأكاديمية</span></div></a><nav class="hidden lg:flex items-center gap-space-xs"><a class="site-nav-link" href="home.html">الرئيسية</a><a class="site-nav-link" href="subject.html">المواد الدراسية</a><a class="site-nav-link" href="calendar.html">التقويم</a><a aria-current="page" class="site-nav-link is-active" href="exams.html">الإمتحانات</a><a class="site-nav-link" href="profile.html">الملف الشخصي</a></nav></div><div class="flex-1 max-w-md hidden md:block mx-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute right-space-sm text-outline text-[20px] pointer-events-none">search</span><input class="w-full h-10 pr-10 pl-space-md bg-surface-container-low text-on-surface placeholder:text-outline rounded-lg text-body-sm font-body-sm focus:outline-none focus:ring-2 focus:ring-secondary/30 transition-all" placeholder="بحث سريع..." type="text"/></div></div><div class="flex items-center gap-space-sm"><button aria-label="الإشعارات" class="relative w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 left-1.5 w-4 h-4 rounded-full bg-error text-on-error font-label-sm text-label-sm flex items-center justify-center leading-none">3</span></button><div class="flex items-center gap-space-sm pl-space-xs pr-space-sm py-1 rounded-xl hover:bg-surface-container-high transition-colors cursor-pointer" onclick="window.location.href='profile.html'"><div class="text-right hidden sm:block"><div class="font-label-lg text-label-lg text-on-surface font-semibold leading-tight">أحمد الشمري</div><div class="font-label-sm text-label-sm text-on-surface-variant leading-tight">طالب - هندسة حاسوب</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div>
+<nav class="lg:hidden flex items-center gap-space-xs overflow-x-auto px-gutter pb-space-sm bg-surface-container-lowest"><a class="site-nav-link" href="home.html">الرئيسية</a><a class="site-nav-link" href="subject.html">المواد الدراسية</a><a class="site-nav-link" href="calendar.html">التقويم</a><a aria-current="page" class="site-nav-link is-active" href="exams.html">الإمتحانات</a><a class="site-nav-link" href="profile.html">الملف الشخصي</a></nav>
+<div class="w-full bg-surface-container-low/70 py-space-xs"><div class="max-w-7xl mx-auto px-gutter flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-secondary">verified</span><span>جلسة الاختبار الأكاديمي نشطة ومشفرة</span><span class="mx-space-xs text-outline-variant">•</span><span>العام الدراسي 1446-1447هـ</span></div><div class="hidden sm:flex items-center gap-space-sm"><span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-tertiary"></span>اتصال آمن ومستقر</span></div></div></div></header><main class="w-full pt-36 lg:pt-24 bg-surface flex-1 max-w-7xl mx-auto px-gutter py-space-lg"><div class="flex flex-col w-full">
+<!-- Breadcrumbs & Meta Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-lg">
+<div class="flex flex-col gap-space-xs">
+<nav aria-label="مسار التنقل" class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-secondary transition-colors" href="home.html">الرئيسية</a>
+<span class="material-symbols-outlined text-[14px]">chevron_left</span>
+<a class="hover:text-secondary transition-colors" href="exams.html">بنك الامتحانات</a>
+<span class="material-symbols-outlined text-[14px]">chevron_left</span>
+<span class="text-secondary font-medium">إنشاء امتحان تجريبي جديد</span>
+</nav>
+<div class="flex items-center gap-space-sm mt-1">
+<div class="w-2.5 h-7 rounded-full bg-secondary"></div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">إنشاء اختبار جديد متعدد الخيارات (MCQ)</h1>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+        قم بتهيئة المعايير الأكاديمية والجدول الزمني للاختبار، ثم قَم بصياغة الأسئلة واختيار الإجابات النموذجية لتقييم تحصيل الطلاب بدقة.
+      </p>
+</div>
+<!-- Live Status & Quick Action -->
+<div class="flex items-center gap-space-sm self-start md:self-center bg-surface-container-high px-space-md py-space-sm rounded-lg shadow-sm">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-tertiary"></span>
+</span>
+<span class="font-label-sm text-label-sm text-on-surface">جلسة تحرير مشفرة آلياً</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="autosave-label">مسودة محدثة</span>
+</div>
+</div>
+<!-- Stepper Indicator Component -->
+<div class="bg-surface-container-low rounded-xl p-space-md mb-space-xl shadow-md relative overflow-hidden">
+<div class="absolute -left-12 -top-12 w-48 h-48 bg-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md relative z-10">
+<!-- Step 1 (Completed) -->
+<div class="flex items-center gap-space-md p-space-sm rounded-lg bg-surface-container/60">
+<div class="w-10 h-10 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center font-headline-sm text-headline-sm shrink-0">
+<span class="material-symbols-outlined text-[20px]">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary">الخطوة الأولى</span>
+<span class="font-title-md text-title-md text-on-surface">تفاصيل الاختبار الأساسية</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">تم ضبط المعايير بنجاح</span>
+</div>
+</div>
+<!-- Step 2 (Active) -->
+<div class="flex items-center gap-space-md p-space-sm rounded-lg bg-primary-container text-on-surface shadow-md">
+<div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-headline-sm text-headline-sm shrink-0 shadow-[0_0_15px_rgba(76,215,246,0.5)]">
+<span>٢</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary font-semibold">الخطوة الحالية (نشطة)</span>
+<span class="font-title-md text-title-md text-on-surface">صياغة وبناء الأسئلة</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">إدخال الأسئلة والمفاتيح</span>
+</div>
+</div>
+<!-- Step 3 (Pending) -->
+<div class="flex items-center gap-space-md p-space-sm rounded-lg bg-surface-container/30 opacity-70">
+<div class="w-10 h-10 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-headline-sm text-headline-sm shrink-0">
+<span>٣</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">الخطوة النهائية</span>
+<span class="font-title-md text-title-md text-on-surface-variant">المراجعة والاعتماد المشرفي</span>
+<span class="font-body-sm text-body-sm text-outline">فحص النزاهة والإتاحة</span>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Right/Main Column: Question Builder (8 Cols on LG) -->
+<div class="lg:col-span-8 flex flex-col gap-space-xl">
+<!-- Builder Header Strip -->
+<div class="bg-surface-container rounded-xl p-space-md flex flex-wrap items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-9 h-9 rounded-lg bg-secondary-container/20 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined">quiz</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">الأسئلة المضافة</span>
+<span class="bg-primary-container text-secondary px-2.5 py-0.5 rounded-full font-label-md text-label-md">3 من 5 أسئلة</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">المجموع المرصود: 6 من 10 درجات كلية</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-lg text-label-lg transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">cloud_download</span>
+<span>استيراد من بنك الأسئلة</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-lg text-label-lg transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+<span>معاينة تجريبية</span>
+</button>
+</div>
+</div>
+<!-- Question Card 1 (Complete / Exemplary) -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-lg relative transition-all duration-200 hover:shadow-xl">
+<div class="flex items-center justify-between gap-space-sm pb-space-md mb-space-md">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="px-3 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+              السؤال 1 (إجباري)
+            </span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-tertiary font-label-sm text-label-sm">
+              موضوع: التدفق والمجالات
+            </span>
+</div>
+<div class="flex items-center gap-space-md">
+<!-- Points Input -->
+<div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1 rounded-lg">
+<label class="font-label-sm text-label-sm text-on-surface-variant">النقاط:</label>
+<input class="w-10 bg-transparent text-center font-label-lg text-label-lg text-secondary focus:outline-none" max="10" min="1" type="number" value="2"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant">درجات</span>
+</div>
+<!-- Management Tools -->
+<div class="flex items-center gap-1 bg-surface-container rounded-lg p-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="تحريك لأعلى" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_upward</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="تحريك لأسفل" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="تكرار السؤال" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+<button class="p-1 rounded text-error hover:bg-error/10 transition-colors" title="حذف السؤال" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Question Stem Textarea -->
+<div class="mb-space-md">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-space-xs">نص السؤال الاستفهامي الأساسي:</label>
+<div class="relative">
+<textarea class="w-full bg-surface-container-lowest text-on-surface rounded-lg p-space-md font-body-lg text-body-lg focus:outline-none focus:ring-2 focus:ring-secondary/60 transition-all placeholder:text-outline-variant resize-none" placeholder="أدخل نص السؤال هنا..." rows="3">ما هي وحدة قياس التدفق المغناطيسي (Magnetic Flux) في النظام الدولي للوحدات (SI)؟</textarea>
+<div class="absolute left-3 bottom-3 flex items-center gap-2">
+<button class="text-on-surface-variant hover:text-secondary transition-colors" title="إدراج رمز رياضي" type="button">
+<span class="material-symbols-outlined text-[20px]">functions</span>
+</button>
+<button class="text-on-surface-variant hover:text-secondary transition-colors" title="إرفاق رسم توضيحي" type="button">
+<span class="material-symbols-outlined text-[20px]">image</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Options Container -->
+<div class="flex flex-col gap-space-sm mb-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">الخيارات الأربعة (حدد الإجابة الصحيحة بالضغط على الخيار):</span>
+<span class="font-label-sm text-label-sm text-secondary">إجابة نموذجية وحيدة مطلوبة</span>
+</div>
+<!-- Option A (Correct Selected) -->
+<div class="group relative flex items-center justify-between p-space-md rounded-lg bg-tertiary-container/30 transition-all cursor-pointer shadow-sm">
+<div class="flex items-center gap-space-md w-full">
+<div class="w-7 h-7 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center font-headline-sm text-headline-sm shrink-0 shadow-[0_0_12px_rgba(78,222,163,0.3)]">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+<span class="w-7 h-7 rounded bg-surface-container-high flex items-center justify-center font-label-md text-label-md text-on-surface shrink-0">أ</span>
+<input class="w-full bg-transparent font-title-md text-title-md text-on-surface focus:outline-none" type="text" value="الويبر (Weber - Wb)"/>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<span class="px-2.5 py-1 rounded-full bg-tertiary/20 text-tertiary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">task_alt</span>
+                الإجابة الصحيحة
+              </span>
+<button class="text-outline hover:text-error transition-colors p-1" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Option B -->
+<div class="group relative flex items-center justify-between p-space-md rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-center gap-space-md w-full">
+<div class="w-7 h-7 rounded-full bg-surface-variant flex items-center justify-center text-outline shrink-0 group-hover:bg-surface-bright">
+<div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+</div>
+<span class="w-7 h-7 rounded bg-surface-container-high flex items-center justify-center font-label-md text-label-md text-on-surface-variant shrink-0">ب</span>
+<input class="w-full bg-transparent font-title-md text-title-md text-on-surface focus:outline-none" type="text" value="التسلا (Tesla - T)"/>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="text-outline hover:text-error transition-colors p-1 opacity-0 group-hover:opacity-100" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Option C -->
+<div class="group relative flex items-center justify-between p-space-md rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-center gap-space-md w-full">
+<div class="w-7 h-7 rounded-full bg-surface-variant flex items-center justify-center text-outline shrink-0 group-hover:bg-surface-bright">
+<div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+</div>
+<span class="w-7 h-7 rounded bg-surface-container-high flex items-center justify-center font-label-md text-label-md text-on-surface-variant shrink-0">ج</span>
+<input class="w-full bg-transparent font-title-md text-title-md text-on-surface focus:outline-none" type="text" value="الهنري (Henry - H)"/>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="text-outline hover:text-error transition-colors p-1 opacity-0 group-hover:opacity-100" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Option D -->
+<div class="group relative flex items-center justify-between p-space-md rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-center gap-space-md w-full">
+<div class="w-7 h-7 rounded-full bg-surface-variant flex items-center justify-center text-outline shrink-0 group-hover:bg-surface-bright">
+<div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+</div>
+<span class="w-7 h-7 rounded bg-surface-container-high flex items-center justify-center font-label-md text-label-md text-on-surface-variant shrink-0">د</span>
+<input class="w-full bg-transparent font-title-md text-title-md text-on-surface focus:outline-none" type="text" value="الفاراد (Farad - F)"/>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="text-outline hover:text-error transition-colors p-1 opacity-0 group-hover:opacity-100" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Answer Explanation Drawer -->
+<div class="bg-surface-container/70 rounded-lg p-space-md mt-space-md">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+<span>تعليل الإجابة النموذجية ومصدر الشرح (يظهر للطالب بعد إعلان النتيجة):</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary">موصى به أكاديمياً</span>
+</div>
+<textarea class="w-full bg-surface-container-lowest text-on-surface-variant rounded-md p-space-sm font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-secondary/50 placeholder:text-outline-variant resize-none" rows="2">الويبر (Wb) هو وحدة قياس التدفق المغناطيسي، بينما التسلا هي وحدة كثافة التدفق، والهنري لمعامل الحث الذاتي، والفاراد للسعة الكهربائية.</textarea>
+</div>
+</div>
+<!-- Question Card 2 (In Progress / Editing State) -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-lg relative transition-all duration-200">
+<div class="flex items-center justify-between gap-space-sm pb-space-md mb-space-md">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="px-3 py-1 rounded-full bg-primary-container text-secondary font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+              السؤال 2 (قيد التحرير)
+            </span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+              موضوع: قانون فراداي
+            </span>
+</div>
+<div class="flex items-center gap-space-md">
+<!-- Points Input -->
+<div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1 rounded-lg">
+<label class="font-label-sm text-label-sm text-on-surface-variant">النقاط:</label>
+<input class="w-10 bg-transparent text-center font-label-lg text-label-lg text-secondary focus:outline-none" max="10" min="1" type="number" value="2"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant">درجات</span>
+</div>
+<!-- Management Tools -->
+<div class="flex items-center gap-1 bg-surface-container rounded-lg p-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="تحريك لأعلى" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_upward</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="تحريك لأسفل" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="تكرار السؤال" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+<button class="p-1 rounded text-error hover:bg-error/10 transition-colors" title="حذف السؤال" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Question Stem Textarea -->
+<div class="mb-space-md">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-space-xs">نص السؤال:</label>
+<textarea class="w-full bg-surface-container-lowest text-on-surface rounded-lg p-space-md font-body-lg text-body-lg focus:outline-none focus:ring-2 focus:ring-secondary/60 transition-all placeholder:text-outline-variant resize-none" rows="2">وفقاً لقانون فراداي للحث الكهرومغناطيسي، تتناسب القوة الدافعة الكهربية المستحثة طردياً مع:</textarea>
+</div>
+<!-- Options Container -->
+<div class="flex flex-col gap-space-sm mb-space-md">
+<!-- Option A (Correct Selected) -->
+<div class="group relative flex items-center justify-between p-space-md rounded-lg bg-tertiary-container/30 transition-all cursor-pointer">
+<div class="flex items-center gap-space-md w-full">
+<div class="w-7 h-7 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center font-headline-sm text-headline-sm shrink-0">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+<span class="w-7 h-7 rounded bg-surface-container-high flex items-center justify-center font-label-md text-label-md text-on-surface shrink-0">أ</span>
+<input class="w-full bg-transparent font-title-md text-title-md text-on-surface focus:outline-none" type="text" value="المعدل الزمني لتغير التدفق المغناطيسي (dΦ/dt)"/>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<span class="px-2.5 py-1 rounded-full bg-tertiary/20 text-tertiary font-label-sm text-label-sm font-semibold">إجابة صحيحة</span>
+<button class="text-outline hover:text-error transition-colors p-1" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Option B -->
+<div class="group relative flex items-center justify-between p-space-md rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-center gap-space-md w-full">
+<div class="w-7 h-7 rounded-full bg-surface-variant flex items-center justify-center text-outline shrink-0"></div>
+<span class="w-7 h-7 rounded bg-surface-container-high flex items-center justify-center font-label-md text-label-md text-on-surface-variant shrink-0">ب</span>
+<input class="w-full bg-transparent font-title-md text-title-md text-on-surface focus:outline-none" type="text" value="مقاومة السلك الثابتة"/>
+</div>
+<button class="text-outline hover:text-error transition-colors p-1 opacity-0 group-hover:opacity-100" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Option C -->
+<div class="group relative flex items-center justify-between p-space-md rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-center gap-space-md w-full">
+<div class="w-7 h-7 rounded-full bg-surface-variant flex items-center justify-center text-outline shrink-0"></div>
+<span class="w-7 h-7 rounded bg-surface-container-high flex items-center justify-center font-label-md text-label-md text-on-surface-variant shrink-0">ج</span>
+<input class="w-full bg-transparent font-title-md text-title-md text-on-surface focus:outline-none" type="text" value="شدة المجال المغناطيسي الثابت"/>
+</div>
+<button class="text-outline hover:text-error transition-colors p-1 opacity-0 group-hover:opacity-100" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Add Fourth Option Trigger -->
+<button class="w-full p-space-md rounded-lg bg-surface-container/50 hover:bg-surface-container flex items-center justify-center gap-space-xs text-secondary font-label-lg text-label-lg transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>إضافة خيار رابع للسؤال</span>
+</button>
+</div>
+<!-- Answer Explanation Box -->
+<div class="bg-surface-container/70 rounded-lg p-space-md">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+<span>تعليل الإجابة النموذجية:</span>
+</div>
+</div>
+<textarea class="w-full bg-surface-container-lowest text-on-surface-variant rounded-md p-space-sm font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-secondary/50 placeholder:text-outline-variant resize-none" rows="2">ينص قانون فراداي على أن القوة الدافعة الكهربائية التأثيرية المتولدة في دائرة مغلقة تتناسب طردياً مع المعدل الزمني الذي يقطع به التدفق المغناطيسي تلك الدائرة.</textarea>
+</div>
+</div>
+<!-- Add New Question Placeholder Button -->
+<button class="w-full py-space-xl px-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container flex flex-col items-center justify-center gap-space-sm text-on-surface-variant hover:text-secondary transition-all shadow-sm group" type="button">
+<div class="w-12 h-12 rounded-full bg-primary-container group-hover:bg-secondary group-hover:text-on-secondary text-secondary flex items-center justify-center transition-all shadow-[0_4px_16px_rgba(76,215,246,0.15)]">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-headline-sm text-headline-sm text-on-surface">إضافة سؤال جديد إلى الاختبار</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">متبقي درجتان لإكمال المجموع الكلي (10 درجات)</span>
+</div>
+</button>
+</div>
+<!-- Left/Sidebar Column: Basic Exam Details & Guardrails (4 Cols on LG) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg lg:sticky lg:top-24">
+<!-- Basic Exam Details Card -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-lg relative overflow-hidden">
+<div class="flex items-center justify-between pb-space-md mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">tune</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">بيانات الاختبار</h2>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-sm text-label-sm">معايير الاختبار</span>
+</div>
+<div class="flex flex-col gap-space-md">
+<!-- Course Selector -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-space-xs flex items-center justify-between">
+<span>المادة المستهدفة</span>
+<span class="text-error font-label-sm text-label-sm">* إلزامي</span>
+</label>
+<div class="relative">
+<select class="w-full bg-surface-container text-on-surface rounded-lg px-space-md py-space-sm font-title-md text-title-md appearance-none focus:outline-none focus:ring-2 focus:ring-secondary/50 cursor-pointer">
+<option selected="" value="phys102">فيزياء عامة II - PHYS 102</option>
+<option value="math201">رياضيات تفاضل وتكامل - MATH 201</option>
+<option value="cs105">مبادئ قواعد البيانات - CS 105</option>
+<option value="se310">هندسة البرمجيات المتقدمة - SE 310</option>
+</select>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+<!-- Target Chapters / Tags -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-space-xs">
+              الأبواب والمفردات المستهدفة (اختياري)
+            </label>
+<div class="bg-surface-container rounded-lg p-2.5 flex flex-wrap gap-1.5">
+<span class="bg-primary-container text-secondary px-2.5 py-1 rounded-md font-label-sm text-label-sm flex items-center gap-1">
+                الباب 3: المغناطيسية
+                <button class="hover:text-error transition-colors" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="bg-primary-container text-secondary px-2.5 py-1 rounded-md font-label-sm text-label-sm flex items-center gap-1">
+                الباب 4: الحث الكهرومغناطيسي
+                <button class="hover:text-error transition-colors" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<input class="bg-transparent text-on-surface font-body-sm text-body-sm focus:outline-none flex-1 min-w-[80px] px-1 placeholder:text-outline-variant" placeholder="+ أضف وسماً..." type="text"/>
+</div>
+</div>
+<!-- Question Counter and Mark Distribution -->
+<div class="bg-surface-container p-space-md rounded-lg flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">إجمالي عدد الأسئلة:</span>
+<div class="flex items-center gap-2 bg-surface-container-high rounded-md p-1">
+<button class="w-7 h-7 rounded bg-surface-container flex items-center justify-center text-on-surface hover:bg-secondary hover:text-on-secondary transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="font-headline-sm text-headline-sm text-secondary px-2">5</span>
+<button class="w-7 h-7 rounded bg-surface-container flex items-center justify-center text-on-surface hover:bg-secondary hover:text-on-secondary transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-2">
+<span>توزيع الدرجات المقترح:</span>
+<span class="text-tertiary font-semibold">2 درجات × 5 = 10 درجات إجمالية</span>
+</div>
+</div>
+<!-- Exam Availability Window -->
+<div class="flex flex-col gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">date_range</span>
+              نافذة إتاحة الاختبار وجدول الانعقاد
+            </span>
+<div class="grid grid-cols-1 gap-space-xs">
+<div class="flex items-center justify-between bg-surface-container px-space-md py-space-sm rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">تاريخ البداية:</span>
+<div class="flex items-center gap-2 text-on-surface font-title-md text-title-md">
+<span class="text-secondary font-mono">2025-05-10 | 09:00 ص</span>
+<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
+</div>
+</div>
+<div class="flex items-center justify-between bg-surface-container px-space-md py-space-sm rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">تاريخ النهاية:</span>
+<div class="flex items-center gap-2 text-on-surface font-title-md text-title-md">
+<span class="text-secondary font-mono">2025-05-12 | 11:59 م</span>
+<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
+</div>
+</div>
+<div class="flex items-center justify-between bg-surface-container px-space-md py-space-sm rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">المدة الزمنية للاختبار:</span>
+<div class="flex items-center gap-2 text-on-surface font-title-md text-title-md">
+<span class="font-semibold text-secondary">45 دقيقة</span>
+<span class="material-symbols-outlined text-[16px] text-outline">timer</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Exam Settings Toggles -->
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container/50">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">خلط ترتيب الأسئلة عشوائياً</span>
+<span class="font-body-sm text-body-sm text-outline">تقليل فرصة المشاركة غير المصرحة</span>
+</div>
+<div class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full bg-secondary-container p-0.5 transition-colors">
+<span class="inline-block h-5 w-5 translate-x-0 rounded-full bg-surface-container-lowest shadow-md transform"></span>
+</div>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container/50">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">إظهار النتيجة فور التسليم</span>
+<span class="font-body-sm text-body-sm text-outline">عرض الإحصائيات الفورية للطالب</span>
+</div>
+<div class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full bg-surface-variant p-0.5 transition-colors">
+<span class="inline-block h-5 w-5 -translate-x-5 rounded-full bg-on-surface-variant shadow-md transform"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Mandatory Official Notice Alert Banner -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-md flex items-start gap-space-md relative overflow-hidden">
+<div class="w-10 h-10 rounded-lg bg-error-container/30 text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs text-error font-title-md text-title-md">
+<span>تنبيه لوائح النزاهة الأكاديمية:</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            تخضع جميع الامتحانات المضافة لمراجعة وتدقيق المشرف الأكاديمي المعتمد قبل النشر النهائي للطلاب، ولا يمكن تعديل بنية الأسئلة بعد بدء نافذة الاختبار المحددة.
+          </p>
+</div>
+</div>
+<!-- Live Academic Audit Mini-Card -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">مؤشر جودة صياغة الاختبار</span>
+<span class="font-label-md text-label-md text-tertiary">92% (ممتاز)</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-gradient-to-l from-tertiary to-secondary h-full rounded-full w-[92%]"></div>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-outline">
+<span class="material-symbols-outlined text-[14px] text-tertiary">check_circle</span>
+<span>الخيارات متوازنة الطول ومزودة بتعليل علمي موثق</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Actions Bar (RTL Ergonomics) -->
+<div class="sticky bottom-4 z-40 mt-space-2xl w-full">
+<div class="bg-surface-container-lowest/95 backdrop-blur-xl rounded-xl p-space-md shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-space-md max-w-5xl mx-auto">
+<!-- Autosave indicator and summary info -->
+<div class="flex items-center gap-space-md w-full sm:w-auto justify-between sm:justify-start">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px] text-tertiary">cloud_done</span>
+<span>تم حفظ المسودة تلقائياً منذ دقيقتين</span>
+</div>
+<div class="hidden md:flex items-center gap-space-sm font-label-sm text-label-sm text-outline">
+<span>•</span>
+<span>المجموع الحالي: 6 / 10 درجات</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-sm w-full sm:w-auto justify-end">
+<button class="flex-1 sm:flex-none px-space-lg py-space-sm rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-lg text-label-lg transition-all" type="button">
+          حفظ كمسودة
+        </button>
+<a href="exams.html" class="flex-1 sm:flex-none px-space-xl py-space-sm rounded-full bg-gradient-to-l from-secondary to-secondary-container text-on-secondary font-label-lg text-label-lg font-bold flex items-center justify-center gap-space-xs shadow-[0_4px_24px_rgba(76,215,246,0.35)] hover:shadow-[0_6px_28px_rgba(76,215,246,0.5)] hover:-translate-y-0.5 transition-all">
+<span class="material-symbols-outlined text-[20px]">send</span>
+<span>إرسال الامتحان للمراجعة والاعتماد</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Dynamic Autosave & Option Interaction Micro-script
+  document.addEventListener('DOMContentLoaded', () => {
+    const autosaveEl = document.getElementById('autosave-label');
+    if (autosaveEl) {
+      setInterval(() => {
+        autosaveEl.textContent = 'تم المزامنة الآن';
+        setTimeout(() => {
+          autosaveEl.textContent = 'مسودة محدثة';
+        }, 3000);
+      }, 45000);
+    }
+  });
+</script></main><footer class="w-full bg-surface-container-lowest mt-auto"><div class="max-w-7xl mx-auto px-gutter py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex flex-col gap-space-xs text-center md:text-right"><div class="flex items-center justify-center md:justify-start gap-space-sm"><span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span><span class="font-title-md text-title-md text-on-surface">اعتماد وزارة التعليم والبحث العلمي</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">منظومة وطنية متكاملة للاختبارات المحوسبة والتقويم الأكاديمي الرقمي المقنن.</p></div><div class="flex flex-wrap items-center justify-center gap-space-lg font-label-md text-label-md text-on-surface-variant"><a class="hover:text-secondary transition-colors" href="#">سياسة الخصوصية</a><a class="hover:text-secondary transition-colors" href="#">شروط الاستخدام</a><a class="hover:text-secondary transition-colors" href="#">الدعم والمساعدة التقنية</a><a class="hover:text-secondary transition-colors" href="#">لوائح النزاهة الأكاديمية</a></div><div class="font-label-sm text-label-sm text-outline">© 1446هـ منصة دعم التعليم الإلكتروني. جميع الحقوق محفوظة.</div></div></footer></body></html>

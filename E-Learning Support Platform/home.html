@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link rel="stylesheet" href="styles.css"/><link rel="icon" href="logo.svg" type="image/svg+xml"/><script src="https://cdn.tailwindcss.com"></script><script src="tailwind.config.js"></script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(30,58,138,0.08)]"><div class="h-16 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm" href="home.html"><div class="brand-logo w-10 h-10"><img alt="شعار منصة دعم التعليم الإلكتروني" src="logo.svg"/></div><div class="hidden sm:flex flex-col leading-tight"><span class="brand-wordmark font-headline-sm text-headline-sm">منصة دعم التعليم الإلكتروني</span><span class="brand-tagline font-label-sm text-label-sm">إسناد لمسيرتك الأكاديمية</span></div></a><nav class="hidden lg:flex items-center gap-space-xs"><a aria-current="page" class="site-nav-link is-active" href="home.html">الرئيسية</a><a class="site-nav-link" href="subject.html">المواد الدراسية</a><a class="site-nav-link" href="calendar.html">التقويم</a><a class="site-nav-link" href="exams.html">الإمتحانات</a><a class="site-nav-link" href="profile.html">الملف الشخصي</a></nav></div><div class="flex-1 max-w-md hidden md:block mx-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute right-space-sm text-outline text-[20px] pointer-events-none">search</span><input class="w-full h-10 pr-10 pl-space-md bg-surface-container-low text-on-surface placeholder:text-outline rounded-lg text-body-sm font-body-sm focus:outline-none focus:ring-2 focus:ring-secondary/30 transition-all" placeholder="ابحث عن مادة، ملخص، أو اختبار..." type="text"/></div></div><div class="flex items-center gap-space-sm"><button aria-label="الإشعارات" class="relative w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 left-1.5 w-4 h-4 rounded-full bg-error text-on-error font-label-sm text-label-sm flex items-center justify-center leading-none">3</span></button><div class="flex items-center gap-space-sm pl-space-xs pr-space-sm py-1 rounded-xl hover:bg-surface-container-high transition-colors cursor-pointer" onclick="window.location.href='profile.html'"><div class="text-right hidden sm:block"><div class="font-label-lg text-label-lg text-on-surface font-semibold leading-tight">أحمد الشمري</div><div class="font-label-sm text-label-sm text-on-surface-variant leading-tight">طالب - هندسة حاسوب</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div>
+<nav class="lg:hidden flex items-center gap-space-xs overflow-x-auto px-gutter pb-space-sm bg-surface-container-lowest"><a aria-current="page" class="site-nav-link is-active" href="home.html">الرئيسية</a><a class="site-nav-link" href="subject.html">المواد الدراسية</a><a class="site-nav-link" href="calendar.html">التقويم</a><a class="site-nav-link" href="exams.html">الإمتحانات</a><a class="site-nav-link" href="profile.html">الملف الشخصي</a></nav>
+</header><main class="w-full pt-28 lg:pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="max-w-[1440px] w-full mx-auto px-gutter py-space-lg flex flex-col gap-space-lg">
+<!-- Section 1: Welcome & Motivational Carousel Area -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-stretch">
+<!-- Greeting & Quick Actions (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -top-12 -left-12 w-48 h-48 bg-secondary-container/30 rounded-full blur-2xl pointer-events-none"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-space-xs text-secondary mb-space-xs">
+<span class="material-symbols-outlined text-headline-sm">waving_hand</span>
+<span class="font-label-lg text-label-lg font-semibold tracking-wide">لوحة التحكم الأكاديمية الذكية</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight mb-space-xs">
+            مرحباً بعودتك، أحمد! 👋
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
+            نتمنى لك يوماً أكاديمياً مليئاً بالإنجاز والتفوق. إليك أبرز التحديثات والتكليفات المجدولة لمسيرتك اليوم.
+          </p>
+</div>
+<div class="relative z-10 pt-space-lg flex flex-wrap items-center gap-space-sm">
+<button class="inline-flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-primary-container text-primary-fixed hover:bg-primary hover:text-on-primary transition-all shadow-sm font-label-lg text-label-lg active:scale-95">
+<span class="material-symbols-outlined text-body-lg">how_to_reg</span>
+<span>تسجيل حضور محاضرة اليوم</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface transition-all font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-body-lg text-secondary">file_download</span>
+<span>تحميل الملخصات المحدثة</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface transition-all font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-body-lg text-secondary">help_outline</span>
+<span>طرح سؤال أكاديمي</span>
+</button>
+</div>
+</div>
+<!-- Motivational Quote Banner (5 Cols) -->
+<div class="lg:col-span-5 bg-gradient-to-bl from-primary-container via-inverse-surface to-primary-container text-on-primary rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/15 rounded-full blur-xl pointer-events-none"></div>
+<div class="relative z-10">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-secondary-container/20 text-secondary-fixed text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-body-sm font-bold">auto_awesome</span>
+              نصيحة الأسبوع الأكاديمية
+            </span>
+<button class="w-8 h-8 rounded-lg bg-surface-container-highest/20 hover:bg-surface-container-highest/30 text-surface flex items-center justify-center transition-transform active:rotate-180" id="refresh-quote-btn" title="تحديث النصيحة">
+<span class="material-symbols-outlined text-body-md">sync</span>
+</button>
+</div>
+<blockquote class="font-headline-sm text-headline-sm text-surface font-semibold leading-relaxed my-space-sm" id="quote-text">
+            «الاستمرار في التعلم هو مفتاح التفوق الحقيقي، كل دقيقة تقضيها في فهم المفهوم تقربك خطوة من هدفك الأكاديمي.»
+          </blockquote>
+<p class="font-body-sm text-body-sm text-surface-tint" id="quote-author">
+            — د. عبد الرحمن المشرفي | عميد التطوير الأكاديمي
+          </p>
+</div>
+<div class="relative z-10 pt-space-md flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-6 h-1.5 rounded-full bg-secondary-fixed"></span>
+<span class="w-2 h-1.5 rounded-full bg-surface-container-highest/40"></span>
+<span class="w-2 h-1.5 rounded-full bg-surface-container-highest/40"></span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="w-7 h-7 rounded bg-surface-container-highest/20 hover:bg-surface-container-highest/40 flex items-center justify-center text-surface transition-colors">
+<span class="material-symbols-outlined text-body-md">chevron_right</span>
+</button>
+<button class="w-7 h-7 rounded bg-surface-container-highest/20 hover:bg-surface-container-highest/40 flex items-center justify-center text-surface transition-colors">
+<span class="material-symbols-outlined text-body-md">chevron_left</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Dynamic Urgency Event Alert Banner -->
+<section class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 bottom-0 w-1.5 bg-error"></div>
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md">
+<!-- Event Details -->
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-error-container/40 text-error flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-headline-md font-bold">notification_important</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center flex-wrap gap-space-xs">
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-error/10 text-error text-label-sm font-label-sm font-bold">
+                موعد نهائي عاجل
+              </span>
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-secondary-container/20 text-on-secondary-container text-label-sm font-label-sm font-semibold">
+                أنت مهتم بهذا الحدث ⭐
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mr-1">
+                الحدث 1 من 4 (يتم التبديل تلقائياً كل 30 ثانية)
+              </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface leading-tight">
+              تذكير هام: آخر موعد لتسليم مشروع أمن الشبكات والأنظمة الموزعة
+            </h2>
+<div class="flex items-center gap-space-md font-body-sm text-body-sm text-on-surface-variant flex-wrap mt-0.5">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm text-error">event</span>
+                الجمعة، 18 أكتوبر 2024
+              </span>
+<span class="inline-flex items-center gap-1 font-semibold text-error">
+<span class="material-symbols-outlined text-body-sm">schedule</span>
+                متبقي يومين و 4 ساعات
+              </span>
+</div>
+</div>
+</div>
+<!-- Timer Controls & Actions -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm w-full lg:w-auto">
+<div class="flex items-center gap-space-xs justify-end">
+<button class="p-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-colors" title="الحدث السابق">
+<span class="material-symbols-outlined text-body-md">chevron_right</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-colors" title="الحدث التالي">
+<span class="material-symbols-outlined text-body-md">chevron_left</span>
+</button>
+</div>
+<button class="px-space-md py-2.5 rounded-lg bg-secondary text-on-secondary hover:bg-secondary/90 transition-all font-label-lg text-label-lg font-semibold flex items-center justify-center gap-space-xs shadow-sm">
+<span>تسليم المشروع الآن</span>
+<span class="material-symbols-outlined text-body-md">arrow_left_alt</span>
+</button>
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface transition-all font-label-lg text-label-lg font-medium text-center">
+            تفاصيل المتطلبات
+          </button>
+</div>
+</div>
+<!-- Subtle Progress Strip for Auto-switching timer -->
+<div class="w-full bg-surface-container-high h-1 rounded-full mt-space-md overflow-hidden">
+<div class="bg-secondary h-full rounded-full transition-all duration-300" style="width: 45%;"></div>
+</div>
+</section>
+<!-- Section 3: Key Performance Indicators / Quick Stats Grid -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- KPI 1: Overall Progress -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between gap-space-md hover:shadow-md transition-shadow">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant">نسبة التقدم الشخصية العامة</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-xl text-headline-xl font-bold text-on-surface">78%</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold flex items-center">
+<span class="material-symbols-outlined text-label-sm">trending_up</span>
+              +5%
+            </span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">مقارنة بالأسبوع الماضي</span>
+</div>
+<!-- Circular Progress Inline SVG Chart -->
+<div class="relative w-16 h-16 flex items-center justify-center flex-shrink-0">
+<svg class="w-16 h-16 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="78, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-label-sm text-label-sm font-bold text-on-surface">78%</span>
+</div>
+</div>
+<!-- KPI 2: Upcoming Exams -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">الامتحانات القادمة</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-headline-sm">quiz</span>
+</div>
+</div>
+<div class="my-space-xs">
+<div class="font-headline-xl text-headline-xl font-bold text-on-surface">3 اختبارات</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+            أقربها: اختبار قواعد البيانات النصفي
+          </p>
+</div>
+<div class="inline-flex items-center gap-1 font-label-sm text-label-sm text-error font-semibold">
+<span class="material-symbols-outlined text-label-sm">timer</span>
+          متبقي 5 أيام فقط
+        </div>
+</div>
+<!-- KPI 3: Assignments -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">الواجبات والتسليمات</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-headline-sm">assignment_turned_in</span>
+</div>
+</div>
+<div class="my-space-xs">
+<div class="font-headline-xl text-headline-xl font-bold text-on-surface">2 متبقية</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            تم إنجاز وتسليم 14 من أصل 16 تكليف
+          </p>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 87.5%;"></div>
+</div>
+</div>
+<!-- KPI 4: Community Recognition -->
+<div class="bg-gradient-to-br from-secondary-container/30 via-surface-container-lowest to-surface-container-low rounded-xl p-space-md shadow-sm flex items-center gap-space-md relative overflow-hidden">
+<div class="relative flex-shrink-0">
+<div class="w-14 h-14 rounded-full bg-surface-container-highest p-0.5 shadow-sm">
+<img class="w-full h-full rounded-full object-cover" data-alt="A distinguished male Arab university student with a warm encouraging smile wearing a sharp modern navy sweater against a brightly lit academic tech laboratory setting with soft focus library books in background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-BzausJt7X7AEe_lWKfFM0H6oAudVW9rTIvQrTcRk2vRgoKR_IcABztKUyUB10n3-kJZiQLsiTliERpTxnT97dQbtFgBhTE5SKbJvpC3bFSy53ybchscxLcqc0RHp6JIzKrWsG8JbxI9EsMtH2RsCFW3yXPFq8UHoDSZ6wwVtc1hRYrxfpA4aScGvLpGUm2WPhcjsp5Pu6TB067UaOQ6mBfYBucRbjOiNUzO_kpgJ4QUTtGpe1G4m"/>
+</div>
+<span class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-amber-400 text-amber-950 flex items-center justify-center text-label-sm shadow-sm" title="بطل الأسبوع">
+            🏆
+          </span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm font-bold text-secondary uppercase tracking-wider">
+            بطل الأسبوع الأكاديمي
+          </span>
+<h3 class="font-label-lg text-label-lg font-bold text-on-surface truncate">
+            أحمد المنصوري (أنت)
+          </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+            المركز الأول في حل بنك الأسئلة لدفعة 2024
+          </p>
+</div>
+</div>
+</section>
+<!-- Section 4: Main Layout Split (Main Column 8 cols, Sidebar 4 cols) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- ================= LEFT / MAIN CONTENT AREA (8 Cols) ================= -->
+<main class="lg:col-span-8 flex flex-col gap-space-lg min-w-0">
+<!-- Courses Header & Controls -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-headline-sm">menu_book</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface leading-tight">
+                المواد الدراسية المقيدة
+              </h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">4 مواد نشطة خلال الفصل الدراسي الحالي</p>
+</div>
+</div>
+<!-- Course Filter Tabs -->
+<div class="flex items-center gap-1 p-1 bg-surface-container rounded-lg self-stretch sm:self-auto overflow-x-auto">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md font-semibold shadow-sm whitespace-nowrap">
+              الكل (4)
+            </button>
+<button class="px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors whitespace-nowrap">
+              تحديثات حديثة
+            </button>
+<button class="px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors whitespace-nowrap">
+              قيد الإنجاز
+            </button>
+<button class="px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors whitespace-nowrap">
+              مكتملة
+            </button>
+</div>
+</div>
+<!-- Enrolled Courses 2x2 Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Course Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<span class="px-space-sm py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">
+                  CS-402
+                </span>
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-sm text-label-sm font-bold">
+<span>🔥</span> 3 تحديثات جديدة
+                </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-secondary transition-colors mb-1">
+                أمن الشبكات والمعلومات
+              </h3>
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+<span class="material-symbols-outlined text-body-md text-outline">person</span>
+<span>الدكتور: د. خالد العمري</span>
+</div>
+<!-- Metadata pills -->
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm text-on-surface-variant mb-space-lg">
+<span class="inline-flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded">
+<span class="material-symbols-outlined text-body-sm">ondemand_video</span>
+                  12 محاضرة
+                </span>
+<span class="inline-flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded">
+<span class="material-symbols-outlined text-body-sm">fact_check</span>
+                  4 اختبارات تجريبية
+                </span>
+</div>
+<!-- Dual-Tone Progress Area -->
+<div class="space-y-space-xs mb-space-lg bg-surface-container-low p-space-sm rounded-lg">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface font-semibold">تقدمك الفردي</span>
+<span class="text-secondary font-bold">82%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full transition-all" style="width: 82%;"></div>
+</div>
+<div class="flex justify-between items-center font-label-sm text-label-sm text-outline pt-0.5">
+<span>متوسط تقدم الدفعة</span>
+<span>68%</span>
+</div>
+</div>
+</div>
+<a href="subject.html" class="w-full py-2.5 px-space-md rounded-lg bg-primary-container text-primary-fixed hover:bg-primary hover:text-on-primary transition-all flex items-center justify-center gap-space-xs font-label-lg text-label-lg font-semibold group-hover:shadow-sm">
+<span>عرض المادة واستعراض المحاضرات</span>
+<span class="material-symbols-outlined text-body-md transition-transform group-hover:-translate-x-1">arrow_left_alt</span>
+</a>
+</div>
+<!-- Course Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<span class="px-space-sm py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">
+                  CS-305
+                </span>
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-sm text-label-sm font-bold">
+<span>✨</span> تحديث واحد جديد
+                </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-secondary transition-colors mb-1">
+                نظم إدارة قواعد البيانات المتقدمة
+              </h3>
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+<span class="material-symbols-outlined text-body-md text-outline">person</span>
+<span>الدكتورة: د. سارة النعيمي</span>
+</div>
+<!-- Metadata pills -->
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm text-on-surface-variant mb-space-lg">
+<span class="inline-flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded">
+<span class="material-symbols-outlined text-body-sm">ondemand_video</span>
+                  10 محاضرات
+                </span>
+<span class="inline-flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded">
+<span class="material-symbols-outlined text-body-sm">assignment</span>
+                  مشروع فصلي
+                </span>
+</div>
+<!-- Dual-Tone Progress Area -->
+<div class="space-y-space-xs mb-space-lg bg-surface-container-low p-space-sm rounded-lg">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface font-semibold">تقدمك الفردي</span>
+<span class="text-secondary font-bold">88%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full transition-all" style="width: 88%;"></div>
+</div>
+<div class="flex justify-between items-center font-label-sm text-label-sm text-outline pt-0.5">
+<span>متوسط تقدم الدفعة</span>
+<span>74%</span>
+</div>
+</div>
+</div>
+<a href="subject.html" class="w-full py-2.5 px-space-md rounded-lg bg-primary-container text-primary-fixed hover:bg-primary hover:text-on-primary transition-all flex items-center justify-center gap-space-xs font-label-lg text-label-lg font-semibold group-hover:shadow-sm">
+<span>عرض المادة واستعراض المحاضرات</span>
+<span class="material-symbols-outlined text-body-md transition-transform group-hover:-translate-x-1">arrow_left_alt</span>
+</a>
+</div>
+<!-- Course Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<span class="px-space-sm py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">
+                  AI-210
+                </span>
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-bold">
+<span>⚡</span> 5 أسئلة جديدة بالمنتدى
+                </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-secondary transition-colors mb-1">
+                مقدمة في الذكاء الاصطناعي وتعلم الآلة
+              </h3>
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+<span class="material-symbols-outlined text-body-md text-outline">person</span>
+<span>الدكتور: د. طارق الزهراني</span>
+</div>
+<!-- Metadata pills -->
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm text-on-surface-variant mb-space-lg">
+<span class="inline-flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded">
+<span class="material-symbols-outlined text-body-sm">ondemand_video</span>
+                  14 محاضرة
+                </span>
+<span class="inline-flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded">
+<span class="material-symbols-outlined text-body-sm">quiz</span>
+                  بنك أسئلة شامل
+                </span>
+</div>
+<!-- Dual-Tone Progress Area -->
+<div class="space-y-space-xs mb-space-lg bg-surface-container-low p-space-sm rounded-lg">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface font-semibold">تقدمك الفردي</span>
+<span class="text-secondary font-bold">60%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full transition-all" style="width: 60%;"></div>
+</div>
+<div class="flex justify-between items-center font-label-sm text-label-sm text-outline pt-0.5">
+<span>متوسط تقدم الدفعة</span>
+<span>55%</span>
+</div>
+</div>
+</div>
+<a href="subject.html" class="w-full py-2.5 px-space-md rounded-lg bg-primary-container text-primary-fixed hover:bg-primary hover:text-on-primary transition-all flex items-center justify-center gap-space-xs font-label-lg text-label-lg font-semibold group-hover:shadow-sm">
+<span>عرض المادة واستعراض المحاضرات</span>
+<span class="material-symbols-outlined text-body-md transition-transform group-hover:-translate-x-1">arrow_left_alt</span>
+</a>
+</div>
+<!-- Course Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<span class="px-space-sm py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">
+                  SE-320
+                </span>
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-full bg-secondary-container/20 text-on-secondary-container font-label-sm text-label-sm font-bold">
+<span>✓</span> تم اعتماد الملخص الجديد
+                </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-secondary transition-colors mb-1">
+                هندسة البرمجيات وتطوير النظم
+              </h3>
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+<span class="material-symbols-outlined text-body-md text-outline">person</span>
+<span>الدكتور: د. وليد الشريف</span>
+</div>
+<!-- Metadata pills -->
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm text-on-surface-variant mb-space-lg">
+<span class="inline-flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded">
+<span class="material-symbols-outlined text-body-sm">ondemand_video</span>
+                  8 محاضرات
+                </span>
+<span class="inline-flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded">
+<span class="material-symbols-outlined text-body-sm">task</span>
+                  3 تكليفات عملية
+                </span>
+</div>
+<!-- Dual-Tone Progress Area -->
+<div class="space-y-space-xs mb-space-lg bg-surface-container-low p-space-sm rounded-lg">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface font-semibold">تقدمك الفردي</span>
+<span class="text-secondary font-bold">90%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full transition-all" style="width: 90%;"></div>
+</div>
+<div class="flex justify-between items-center font-label-sm text-label-sm text-outline pt-0.5">
+<span>متوسط تقدم الدفعة</span>
+<span>81%</span>
+</div>
+</div>
+</div>
+<a href="subject.html" class="w-full py-2.5 px-space-md rounded-lg bg-primary-container text-primary-fixed hover:bg-primary hover:text-on-primary transition-all flex items-center justify-center gap-space-xs font-label-lg text-label-lg font-semibold group-hover:shadow-sm">
+<span>عرض المادة واستعراض المحاضرات</span>
+<span class="material-symbols-outlined text-body-md transition-transform group-hover:-translate-x-1">arrow_left_alt</span>
+</a>
+</div>
+</div>
+<!-- Weekly Study Flow Chart / Infographic Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-md">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">ساعات النشاط والمذاكرة الأسبوعية</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">معدل دراستك الأسبوعي مقارنة بالمعدل المستهدف (20 ساعة)</p>
+</div>
+<span class="inline-flex items-center gap-1 font-label-md text-label-md text-secondary font-bold bg-secondary-container/20 px-space-sm py-1 rounded-full">
+<span class="material-symbols-outlined text-body-sm">verified</span>
+              أداء ممتاز (+18%)
+            </span>
+</div>
+<!-- Weekly Bar Chart (Inline SVG) -->
+<div class="h-44 w-full flex items-end justify-between gap-space-sm pt-4 pb-2 px-space-md bg-surface-container-low rounded-xl">
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full max-w-[32px] bg-secondary-container rounded-t-lg transition-all hover:bg-secondary" style="height: 60%;" title="السبت: 3.5 ساعات"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">السبت</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full max-w-[32px] bg-secondary-container rounded-t-lg transition-all hover:bg-secondary" style="height: 80%;" title="الأحد: 4.8 ساعات"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">الأحد</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full max-w-[32px] bg-secondary rounded-t-lg transition-all hover:opacity-90 shadow-sm" style="height: 95%;" title="الإثنين: 5.6 ساعات (الأعلى)"></div>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">الإثنين</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full max-w-[32px] bg-secondary-container rounded-t-lg transition-all hover:bg-secondary" style="height: 70%;" title="الثلاثاء: 4.2 ساعات"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">الثلاثاء</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full max-w-[32px] bg-secondary-container rounded-t-lg transition-all hover:bg-secondary" style="height: 50%;" title="الأربعاء: 3.0 ساعات"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">الأربعاء</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full max-w-[32px] bg-secondary-container rounded-t-lg transition-all hover:bg-secondary" style="height: 65%;" title="الخميس: 4.0 ساعات"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">الخميس</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full max-w-[32px] bg-surface-container-high rounded-t-lg transition-all hover:bg-secondary" style="height: 25%;" title="الجمعة: 1.5 ساعة"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">الجمعة</span>
+</div>
+</div>
+</div>
+</main>
+<!-- ================= RIGHT / SIDEBAR COLUMN (4 Cols) ================= -->
+<aside class="lg:col-span-4 flex flex-col gap-space-lg w-full">
+<!-- 1) Recent Notifications & Updates Feed -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-headline-sm text-secondary">notifications_active</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">آخر التحديثات والإشعارات</h3>
+</div>
+<button class="font-label-sm text-label-sm text-secondary hover:underline font-semibold whitespace-nowrap">
+              تحديد الكل كمقروء
+            </button>
+</div>
+<div class="flex flex-col gap-space-md">
+<!-- Notification Item 1 -->
+<div class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="w-8 h-8 rounded-full bg-secondary-container/40 text-on-secondary-container flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-body-md">post_add</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<p class="font-body-sm text-body-sm text-on-surface font-medium leading-snug">
+                  تمت إضافة أسئلة تدريبية جديدة في مادة أمن الشبكات بواسطة المدرس المساعد.
+                </p>
+<span class="font-label-sm text-label-sm text-outline">منذ 15 دقيقة</span>
+</div>
+</div>
+<!-- Notification Item 2 -->
+<div class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="w-8 h-8 rounded-full bg-primary-container text-primary-fixed flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-body-md">campaign</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<p class="font-body-sm text-body-sm text-on-surface font-medium leading-snug">
+                  تم اعتماد جدول الاختبارات النصفية النهائي من قبل عمادة الكلية.
+                </p>
+<span class="font-label-sm text-label-sm text-outline">منذ ساعتين</span>
+</div>
+</div>
+<!-- Notification Item 3 -->
+<div class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="w-8 h-8 rounded-full bg-error-container/50 text-error flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-body-md">schedule</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<p class="font-body-sm text-body-sm text-on-surface font-medium leading-snug">
+                  تذكير: اقتراب موعد تسليم التكليف الثاني لمادة قواعد البيانات.
+                </p>
+<span class="font-label-sm text-label-sm text-outline">منذ 4 ساعات</span>
+</div>
+</div>
+<!-- Notification Item 4 -->
+<div class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="w-8 h-8 rounded-full bg-secondary-container/40 text-on-secondary-container flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-body-md">forum</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<p class="font-body-sm text-body-sm text-on-surface font-medium leading-snug">
+                  رد جديد على استفسارك في منتدى الذكاء الاصطناعي من الطالب عمر.
+                </p>
+<span class="font-label-sm text-label-sm text-outline">منذ يوم واحد</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 2) Upcoming Deadlines Calendar Preview -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-headline-sm text-secondary">calendar_month</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">جدول المواعيد القريبة</h3>
+</div>
+<a class="font-label-sm text-label-sm text-secondary hover:underline font-semibold" href="calendar.html">عرض التقويم</a>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Deadline 1 -->
+<div class="flex items-center gap-space-md p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded-lg bg-error text-on-error flex flex-col items-center justify-center flex-shrink-0 font-bold leading-tight">
+<span class="font-label-sm text-label-sm">أكتوبر</span>
+<span class="font-headline-sm text-headline-sm">18</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface truncate">تسليم مشروع أمن الشبكات</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">بوابة التكليفات الإلكترونية • 11:59 م</p>
+</div>
+</div>
+<!-- Deadline 2 -->
+<div class="flex items-center gap-space-md p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded-lg bg-primary-container text-primary-fixed flex flex-col items-center justify-center flex-shrink-0 font-bold leading-tight">
+<span class="font-label-sm text-label-sm">أكتوبر</span>
+<span class="font-headline-sm text-headline-sm">22</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface truncate">اختبار نصفي - قواعد البيانات</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">المبنى الأكاديمي، القاعة B3 • 10:00 ص</p>
+</div>
+</div>
+<!-- Deadline 3 -->
+<div class="flex items-center gap-space-md p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded-lg bg-secondary text-on-secondary flex flex-col items-center justify-center flex-shrink-0 font-bold leading-tight">
+<span class="font-label-sm text-label-sm">أكتوبر</span>
+<span class="font-headline-sm text-headline-sm">27</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface truncate">مناقشة مسألة تعلم الآلة</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">قاعة المحاضرات الافتراضية Live</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 3) Fast Academic Help / Quick Question AI Box -->
+<div class="bg-gradient-to-br from-surface-container via-surface-container-high to-surface-container-highest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-sm relative overflow-hidden">
+<div class="flex items-center gap-space-xs text-secondary mb-1">
+<span class="material-symbols-outlined text-headline-sm">psychology</span>
+<span class="font-label-lg text-label-lg font-bold">مساعد الدعم الأكاديمي الفوري</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface">
+            هل تواجه صعوبة في مفهوم معين؟
+          </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-xs">
+            اطرح سؤالك الأكاديمي للحصول على شرح فوري مع مراجع مباشرة من مقرراتك المسجلة.
+          </p>
+<div class="flex flex-col gap-space-xs">
+<div class="relative">
+<textarea class="w-full p-space-sm rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline text-body-sm font-body-sm focus:outline-none focus:ring-2 focus:ring-secondary/20 shadow-sm resize-none" placeholder="مثال: اشرح لي الفرق بين Symmetric و Asymmetric Encryption..." rows="3"></textarea>
+</div>
+<button class="w-full py-2.5 px-space-md rounded-lg bg-secondary text-on-secondary hover:bg-secondary/90 transition-all font-label-lg text-label-lg font-semibold flex items-center justify-center gap-space-xs shadow-sm active:scale-98">
+<span class="material-symbols-outlined text-body-md">smart_toy</span>
+<span>اسأل المعلم المساعد الذكي</span>
+</button>
+</div>
+</div>
+<!-- Peer Study Groups Quick Widget -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/40 text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-headline-sm">groups</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg font-bold text-on-surface">مجموعات المذاكرة النشطة</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">12 طالباً يناقشون الآن</div>
+</div>
+</div>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold transition-colors">
+            انضم الآن
+          </button>
+</div>
+</aside>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const quotes = [
+      {
+        text: "«الاستمرار في التعلم هو مفتاح التفوق الحقيقي، كل دقيقة تقضيها في فهم المفهوم تقربك خطوة من هدفك الأكاديمي.»",
+        author: "— د. عبد الرحمن المشرفي | عميد التطوير الأكاديمي"
+      },
+      {
+        text: "«لا تقاس المعرفة بعدد الساعات المقضية، بل بعمق الفهم والقدرة على ربط المفاهيم المعقدة بالحلول العملية.»",
+        author: "— أ.د. هدى السبيعي | قسم علوم الحاسب"
+      },
+      {
+        text: "«النجاح الأكاديمي هو تراكم العادات اليومية البسيطة والفضول المعرفي الذي لا ينقطع أبداً.»",
+        author: "— د. طارق الزهراني | أستاذ الذكاء الاصطناعي"
+      }
+    ];
+
+    let currentIdx = 0;
+    const quoteText = document.getElementById('quote-text');
+    const quoteAuthor = document.getElementById('quote-author');
+    const refreshBtn = document.getElementById('refresh-quote-btn');
+
+    if (refreshBtn && quoteText && quoteAuthor) {
+      refreshBtn.addEventListener('click', function() {
+        currentIdx = (currentIdx + 1) % quotes.length;
+        quoteText.textContent = quotes[currentIdx].text;
+        quoteAuthor.textContent = quotes[currentIdx].author;
+      });
+    }
+  })();
+</script></main></body></html>

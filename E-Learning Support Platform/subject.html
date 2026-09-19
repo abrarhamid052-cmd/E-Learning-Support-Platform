@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link rel="stylesheet" href="styles.css"/><link rel="icon" href="logo.svg" type="image/svg+xml"/><script src="https://cdn.tailwindcss.com"></script><script src="tailwind.config.js"></script></head><body class="bg-surface text-on-surface font-body-md text-body-md"><header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(30,58,138,0.08)]"><div class="h-16 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm" href="home.html"><div class="brand-logo w-10 h-10"><img alt="شعار منصة دعم التعليم الإلكتروني" src="logo.svg"/></div><div class="hidden sm:flex flex-col leading-tight"><span class="brand-wordmark font-headline-sm text-headline-sm">منصة دعم التعليم الإلكتروني</span><span class="brand-tagline font-label-sm text-label-sm">إسناد لمسيرتك الأكاديمية</span></div></a><nav class="hidden lg:flex items-center gap-space-xs"><a class="site-nav-link" href="home.html">الرئيسية</a><a aria-current="page" class="site-nav-link is-active" href="subject.html">المواد الدراسية</a><a class="site-nav-link" href="calendar.html">التقويم</a><a class="site-nav-link" href="exams.html">الإمتحانات</a><a class="site-nav-link" href="profile.html">الملف الشخصي</a></nav></div><div class="flex-1 max-w-md hidden md:block mx-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute right-space-sm text-outline text-[20px] pointer-events-none">search</span><input class="w-full h-10 pr-10 pl-space-md bg-surface-container-low text-on-surface placeholder:text-outline rounded-lg text-body-sm font-body-sm focus:outline-none focus:ring-2 focus:ring-secondary/30 transition-all" placeholder="بحث سريع في المقررات والمراجع..." type="text"/></div></div><div class="flex items-center gap-space-sm"><button aria-controls="courseSidebar" aria-expanded="false" aria-label="فتح قائمة المادة" class="sidebar-toggle-btn w-9 h-9 rounded-lg items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" onclick="toggleCourseSidebar()" type="button"><span class="material-symbols-outlined text-[22px]">menu</span></button><button aria-label="الإشعارات" class="relative w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 left-1.5 w-4 h-4 rounded-full bg-error text-on-error font-label-sm text-label-sm flex items-center justify-center leading-none">3</span></button><div class="flex items-center gap-space-sm pl-space-xs pr-space-sm py-1 rounded-xl hover:bg-surface-container-high transition-colors cursor-pointer" onclick="window.location.href='profile.html'"><div class="text-right hidden sm:block"><div class="font-label-lg text-label-lg text-on-surface font-semibold leading-tight">أحمد الشمري</div><div class="font-label-sm text-label-sm text-on-surface-variant leading-tight">طالب - هندسة حاسوب</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div>
+<nav class="lg:hidden flex items-center gap-space-xs overflow-x-auto px-gutter pb-space-sm bg-surface-container-lowest"><a class="site-nav-link" href="home.html">الرئيسية</a><a aria-current="page" class="site-nav-link is-active" href="subject.html">المواد الدراسية</a><a class="site-nav-link" href="calendar.html">التقويم</a><a class="site-nav-link" href="exams.html">الإمتحانات</a><a class="site-nav-link" href="profile.html">الملف الشخصي</a></nav>
+</header><aside class="app-sidebar fixed right-0 top-16 h-[calc(100vh-4rem)] w-72 bg-surface-container-low z-40 flex flex-col justify-between py-space-md border-l border-outline-variant/30" id="courseSidebar"><div class="flex flex-col gap-space-md"><div class="px-space-md"><div class="bg-surface-container px-space-sm py-space-xs rounded-lg flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant">الحالة الأكاديمية</span><span class="font-label-sm text-label-sm text-secondary font-semibold">متصل // نشط</span></div></div><nav class="flex flex-col gap-space-xs px-space-sm" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm text-headline-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="overview" href="home.html"><span class="material-symbols-outlined text-primary">grid_view</span><span class="font-headline-sm text-headline-sm">لوحة المعلومات</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="curriculum" href="subject.html"><span class="material-symbols-outlined text-primary">terminal</span><span class="font-headline-sm text-headline-sm">المناهج والمختبرات</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg transition-all bg-primary-container text-on-primary-container font-headline-sm text-headline-sm" data-path="network-security" href="subject.html"><span class="material-symbols-outlined text-primary">shield_lock</span><span class="font-headline-sm text-headline-sm">أمن الشبكات والمعلومات</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="academic-records" href="profile.html"><span class="material-symbols-outlined text-primary">analytics</span><span class="font-headline-sm text-headline-sm">السجل والتقييم الأكاديمي</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="system-support" href="login.html"><span class="material-symbols-outlined text-primary">live_help</span><span class="font-headline-sm text-headline-sm">الدعم الأكاديمي والتقني</span></a></nav></div><div class="px-space-md flex flex-col gap-space-sm"><div class="p-space-sm rounded-lg bg-surface-container-high flex flex-col gap-space-xs"><div class="flex justify-between items-center"><span class="font-label-sm text-label-sm text-on-surface-variant">معدل الإنجاز الفصلـي</span><span class="font-code text-code text-primary">87.4%</span></div><div class="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden"><div class="bg-primary h-1.5 w-[87%]"></div></div></div><div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-space-xs"><span class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">lock</span>نطاق أكاديمي مشفّر</span><span class="font-code text-code text-outline">SEC-2025</span></div></div></aside><div class="sidebar-overlay" id="courseSidebarOverlay" onclick="toggleCourseSidebar()"></div><div class="app-content-with-sidebar pr-72 pt-16"><main class="w-full bg-surface min-h-screen px-space-lg py-space-md"><div class="flex flex-col w-full gap-space-xl">
+<!-- Hero Section & Master Course Header -->
+<section class="relative w-full overflow-hidden bg-surface-container-low p-space-lg md:p-space-xl">
+<div class="absolute -left-20 -top-20 w-96 h-96 rounded-full bg-primary/5 blur-3xl pointer-events-none"></div>
+<div class="absolute right-1/4 -bottom-24 w-80 h-80 rounded-full bg-secondary-container/10 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-space-lg">
+<!-- Top Badges & Meta String -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-space-sm py-0.5 bg-surface-container-highest text-primary font-code text-label-sm tracking-wider uppercase">
+            CS412 // SEC-CORE
+          </span>
+<span class="px-space-sm py-0.5 bg-primary/10 text-primary font-label-sm text-label-sm">
+            مقرر المستوى الرابع - الفصل الدراسي الأول
+          </span>
+<span class="px-space-sm py-0.5 bg-surface-container text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+            معتمد أكاديمياً 2024/2025
+          </span>
+</div>
+<div class="flex items-center gap-space-sm text-outline text-label-sm font-code">
+<span>نظام التشفير: AES-GCM-256</span>
+<span>•</span>
+<span class="text-primary">محدّث منذ ساعتين</span>
+</div>
+</div>
+<!-- Title & Academic Lecturer Identity -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs max-w-3xl">
+<h1 class="font-display text-display leading-tight text-on-surface tracking-tight">
+            أمن الشبكات والمعلومات
+            <span class="block font-headline-md text-headline-md text-secondary mt-1">
+              Network &amp; Information Security Architecture
+            </span>
+</h1>
+<div class="flex items-center gap-space-md mt-space-xs text-on-surface-variant">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 bg-surface-container-highest flex items-center justify-center text-primary font-headline-sm">
+<span class="material-symbols-outlined">shield_person</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">د. خالد السعدي</span>
+<span class="font-label-sm text-label-sm text-outline">أستاذ مشارك للأمن السيبراني والأنظمة الموزعة</span>
+</div>
+</div>
+<span class="h-6 w-px bg-surface-container-highest"></span>
+<div class="flex items-center gap-1 text-label-md font-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span>رئيس مسار الحماية الهجومية والدفاعية</span>
+</div>
+</div>
+</div>
+<!-- Metric Indicator Card Matrix -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="bg-surface-container px-space-md py-space-sm flex flex-col min-w-[130px]">
+<span class="font-label-sm text-label-sm text-outline">المعامل المنجزة</span>
+<span class="font-display text-headline-md text-on-surface">5 <span class="text-label-sm text-outline">/ 6</span></span>
+</div>
+<div class="bg-surface-container px-space-md py-space-sm flex flex-col min-w-[130px]">
+<span class="font-label-sm text-label-sm text-outline">الساعات المعتمدة</span>
+<span class="font-display text-headline-md text-primary">3.00</span>
+</div>
+</div>
+</div>
+<!-- Quick Metrics Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-sm pt-space-xs">
+<!-- Progress Metric -->
+<div class="bg-surface-container p-space-md flex items-center justify-between shadow-sm">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">نسبة إنجازك للمقرر</span>
+<span class="font-display text-headline-lg text-primary">65%</span>
+<span class="font-body-sm text-body-sm text-outline">9 من أصل 14 محاضرة مكتملة</span>
+</div>
+<div class="relative w-16 h-16 flex items-center justify-center">
+<svg class="w-16 h-16 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="65, 100" stroke-linecap="butt" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-code text-label-sm text-primary">65%</span>
+</div>
+</div>
+<!-- Cohort Benchmark Metric -->
+<div class="bg-surface-container p-space-md flex items-center justify-between shadow-sm">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">متوسط استيعاب الدفعة</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display text-headline-lg text-secondary">78%</span>
+<span class="font-label-sm text-label-sm text-primary flex items-center">+4.2%</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">أعلى من متوسط الكلية بـ 6 نقاط</span>
+</div>
+<div class="w-12 h-12 bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[28px]">groups</span>
+</div>
+</div>
+<!-- Next Exam Alert -->
+<div class="bg-surface-container p-space-md flex items-center justify-between shadow-sm">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-tertiary">أقرب إختبار مجدول</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">إختبار نصفي (Midterm)</span>
+<span class="font-code text-label-sm text-tertiary flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+              متبقي 4 أيام (الثلاثاء 10:00 ص)
+            </span>
+</div>
+<div class="w-12 h-12 bg-surface-container-highest flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[28px]">event_upcoming</span>
+</div>
+</div>
+<!-- Active Security Labs -->
+<div class="bg-surface-container p-space-md flex items-center justify-between shadow-sm">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">البيئات الافتراضية للشبكة</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">معمل محاكاة الاختراق</span>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+              الخوادم جاهزة للاتصال
+            </span>
+</div>
+<div class="w-12 h-12 bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">lan</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sticky Quick Tab Navigation -->
+<div class="sticky top-16 z-30 bg-surface/95 backdrop-blur-md py-space-xs">
+<div class="flex items-center justify-between overflow-x-auto gap-space-xs bg-surface-container-lowest p-1.5 shadow-sm">
+<div class="flex items-center gap-1">
+<button class="tab-btn px-space-md py-space-xs bg-primary text-on-primary font-headline-sm text-body-md flex items-center gap-space-xs transition-all" id="tab-btn-lectures" onclick="switchAcademicTab('lectures')">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+<span>المحاضرات والمعامل</span>
+<span class="bg-on-primary text-primary px-1.5 py-0.2 font-code text-label-sm">14</span>
+</button>
+<button class="tab-btn px-space-md py-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-headline-sm text-body-md flex items-center gap-space-xs transition-all" id="tab-btn-exams" onclick="switchAcademicTab('exams')">
+<span class="material-symbols-outlined text-[20px]">assignment_turned_in</span>
+<span>الإمتحانات والاختبارات التقييمية</span>
+<span class="bg-surface-container-highest text-on-surface px-1.5 py-0.2 font-code text-label-sm">3</span>
+</button>
+<button class="tab-btn px-space-md py-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-headline-sm text-body-md flex items-center gap-space-xs transition-all" id="tab-btn-discussions" onclick="switchAcademicTab('discussions')">
+<span class="material-symbols-outlined text-[20px]">forum</span>
+<span>ساحة المناقشات والأسئلة</span>
+<span class="bg-surface-container-highest text-secondary px-1.5 py-0.2 font-code text-label-sm">28 مناقشة</span>
+</button>
+</div>
+<div class="hidden md:flex items-center gap-space-sm pl-space-sm">
+<span class="font-code text-label-sm text-outline">حالة الاتصال بالبوابة: آمن ومباشر</span>
+<div class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></div>
+</div>
+</div>
+</div>
+<!-- Progress & Privacy Control Card -->
+<section class="bg-surface-container p-space-md lg:p-space-lg relative overflow-hidden shadow-sm">
+<div class="absolute right-0 top-0 w-1.5 h-full bg-primary"></div>
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-lg">
+<!-- Left Column: Title & Logic -->
+<div class="flex flex-col gap-space-xs max-w-xl">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">tune</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">إعدادات تتبع التقدم والخصوصية الأكاديمية</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          تحكّم في دقة مؤشر استيعابك للمقرر وطريقة مشاركة إنجازك الأكاديمي مع دفعة هندسة الأمن السيبراني. يمكنك تفعيل الوضع الخاص لحجب مستواك عن لوحة المتصدرين.
+        </p>
+</div>
+<!-- Right Controls: Progress Slider & Privacy Toggle -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-lg w-full lg:w-auto bg-surface-container-low p-space-md">
+<!-- Interactive Progress Slider Component -->
+<div class="flex flex-col gap-space-xs min-w-[240px]">
+<div class="flex justify-between items-center text-label-sm">
+<span class="text-on-surface-variant font-label-sm">المستوى التقديري اليدوي</span>
+<span class="font-code text-primary font-headline-sm" id="slider-val-display">65%</span>
+</div>
+<input class="w-full h-2 bg-surface-container-highest appearance-none cursor-pointer accent-primary focus:outline-none" id="academic-progress-slider" max="100" min="0" oninput="document.getElementById('slider-val-display').innerText = this.value + '%'" type="range" value="65"/>
+<div class="flex justify-between text-[11px] font-label-sm text-outline">
+<span>0% مبتدئ</span>
+<span>50% متوسط</span>
+<span>100% مكتمل</span>
+</div>
+</div>
+<!-- Privacy Status Toggle Box -->
+<div class="flex flex-col gap-space-xs min-w-[260px] bg-surface-container p-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">رؤية التقدم للدفعة</span>
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-primary font-code" id="privacy-state-text">إظهار للعامة (Public)</span>
+<button class="w-11 h-6 bg-primary p-0.5 flex items-center transition-colors justify-start" id="privacy-toggle-btn" onclick="toggleAcademicPrivacy()" type="button">
+<div class="w-5 h-5 bg-on-primary shadow-sm transform transition-transform translate-x-5" id="privacy-knob"></div>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-xs text-[11px] leading-tight text-outline" id="privacy-info-box">
+            يتم تضمين نسبة إنجازك واسمك في إحصائيات استيعاب الدفعة العامة ولوحة شرف المتفوقين.
+          </div>
+</div>
+<!-- Save Button -->
+<button class="bg-primary hover:bg-primary-fixed text-on-primary px-space-md py-space-sm font-headline-sm text-body-sm flex items-center justify-center gap-space-xs transition-colors whitespace-nowrap self-stretch sm:self-center" onclick="saveAcademicPreferences()" type="button">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span id="save-btn-text">حفظ التفضيلات</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Content Block 1: Lectures & Practical Labs -->
+<section class="flex flex-col gap-space-md" id="section-lectures">
+<!-- Filters Header -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">جدول المحاضرات والمعامل الأكاديمية</h3>
+<span class="font-label-sm text-label-sm text-outline">الفصل التأسيسي الشامل</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low p-1">
+<button class="lecture-filter-btn px-space-sm py-1 bg-surface-container text-primary font-label-sm text-label-sm" onclick="filterLectures('all')">الكل (14)</button>
+<button class="lecture-filter-btn px-space-sm py-1 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" onclick="filterLectures('theory')">المحاضرات النظرية</button>
+<button class="lecture-filter-btn px-space-sm py-1 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" onclick="filterLectures('lab')">المعامل العملية</button>
+<button class="lecture-filter-btn px-space-sm py-1 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" onclick="filterLectures('uncompleted')">غير المكتملة (5)</button>
+</div>
+</div>
+<!-- Lectures List -->
+<div class="flex flex-col gap-space-sm">
+<!-- Card 1: Lecture 01 (Detailed & Accordion Open) -->
+<article class="bg-surface-container p-space-md flex flex-col gap-space-md shadow-sm transition-all hover:bg-surface-container-high/60">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center font-display text-headline-sm shrink-0">
+              01
+            </div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-space-xs py-0.5 bg-primary/20 text-primary font-label-sm text-[11px]">نظري + تطبيقي</span>
+<span class="px-space-xs py-0.5 bg-surface-container-highest text-on-surface-variant font-label-sm text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 45 دقيقة
+                </span>
+<span class="px-space-xs py-0.5 bg-surface-container-highest text-on-surface-variant font-label-sm text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">description</span> ملخص PDF (18 صفحة)
+                </span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mt-1">
+                المحاضرة 01: مقدمة في التشفير المتماثل ومبادئ خوارزميات AES &amp; DES
+              </h4>
+<p class="font-body-sm text-body-sm text-outline">
+                دراسة البنية الرياضية لدوال التبديل (Substitution) والتقليب (Permutation) وتطبيقات الحماية لكتل البيانات.
+              </p>
+</div>
+</div>
+<!-- Actions & Downloads -->
+<div class="flex flex-wrap items-center gap-space-xs shrink-0 self-start lg:self-center">
+<button class="px-space-sm py-space-xs bg-surface-container-highest hover:bg-surface-bright text-on-surface font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-primary text-[18px]">download</span>
+<span>تحميل المحتوى (PDF 4.2MB)</span>
+</button>
+<button class="px-space-sm py-space-xs bg-surface-container-lowest hover:bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+<span>كود بايثون التجريبي</span>
+</button>
+</div>
+</div>
+<!-- Collapsible Content Accordion (Open) -->
+<div class="bg-surface-container-lowest p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between text-label-sm text-on-surface-variant">
+<span class="font-headline-sm text-label-md text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">notes</span>
+              الموجز التعليمي ومخرجات التعلم الأكاديمية
+            </span>
+<span class="font-code text-outline text-[12px]">LEC_REF: CS412-M01-V2</span>
+</div>
+<p class="font-body-md text-body-sm text-on-surface-variant leading-relaxed">
+            تغطي هذه المحاضرة المفاهيم التأسيسية للتشفير المتماثل (Symmetric Cryptography)، آليات عمل Feistel Cipher، مفارقة خوارزمية DES القديمة وتحليل نقط الضعف، وصولاً إلى معيار التشفير المتقدم (AES) بطول مفاتيح 128 و 256 بت، مع كتابة سكريبت تطبيقي مباشر بلغة Python لتشفير الرسائل عبر مكتبة Cryptography.
+          </p>
+<!-- Interactive Tracking Unit -->
+<div class="flex flex-wrap items-center justify-between gap-space-md pt-space-xs bg-surface-container p-space-sm">
+<div class="flex items-center gap-space-md">
+<label class="flex items-center gap-space-xs cursor-pointer select-none">
+<input checked="" class="w-4 h-4 text-primary bg-surface-container-highest rounded-none focus:ring-0 accent-primary" type="checkbox"/>
+<span class="font-headline-sm text-body-sm text-on-surface">تم الإطلاع على المحتوى والمحاضرة</span>
+</label>
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-sm py-1">
+<label class="font-label-sm text-label-sm text-outline whitespace-nowrap">نسبة الاستيعاب الشخصية:</label>
+<div class="flex items-center">
+<input class="w-14 bg-transparent text-center font-code text-primary font-headline-sm focus:outline-none" max="100" min="0" type="number" value="85"/>
+<span class="text-primary font-code text-label-sm">%</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="px-space-sm py-1 bg-surface-container-highest text-secondary font-label-sm text-[12px] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">bar_chart</span>
+<span>متوسط استيعاب الدفعة لهذه المحاضرة: <strong class="font-code text-on-surface">82%</strong></span>
+</div>
+<span class="font-code text-[11px] text-primary">تم التحديث التلقائي ✓</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2: Lab 02 (Practical Work) -->
+<article class="bg-surface-container p-space-md flex flex-col gap-space-md shadow-sm transition-all hover:bg-surface-container-high/60">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 bg-secondary-container/20 text-secondary flex items-center justify-center font-display text-headline-sm shrink-0">
+              02
+            </div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-space-xs py-0.5 bg-secondary-container/30 text-secondary font-label-sm text-[11px]">معمل عملي مباشر</span>
+<span class="px-space-xs py-0.5 bg-surface-container-highest text-on-surface-variant font-label-sm text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 55 دقيقة
+                </span>
+<span class="px-space-xs py-0.5 bg-surface-container-highest text-on-surface-variant font-label-sm text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">folder_zip</span> حزمة التقاط الحزم (.pcapng)
+                </span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mt-1">
+                المعمل 02: تحليل حركة الشبكة ورصد الثغرات باستخدام Wireshark &amp; TShark
+              </h4>
+<p class="font-body-sm text-body-sm text-outline">
+                تتبع حزم TCP/IP المباشرة، فحص تسريبات كلمات المرور غير المشفرة في بروتوكول HTTP، واكتشاف محاولات فحص المنافذ.
+              </p>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs shrink-0">
+<button class="px-space-sm py-space-xs bg-primary text-on-primary font-label-sm text-label-sm flex items-center gap-1 hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+<span>تشغيل المحاكاة السحابية</span>
+</button>
+<button class="px-space-sm py-space-xs bg-surface-container-highest hover:bg-surface-bright text-on-surface font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>كراسة المعمل (12 ص)</span>
+</button>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-space-md pt-space-xs bg-surface-container-lowest p-space-sm">
+<div class="flex items-center gap-space-md">
+<label class="flex items-center gap-space-xs cursor-pointer select-none">
+<input checked="" class="w-4 h-4 text-primary bg-surface-container-highest rounded-none focus:ring-0 accent-primary" type="checkbox"/>
+<span class="font-headline-sm text-body-sm text-on-surface">تم تسليم تقرير المعمل وحل التمارين</span>
+</label>
+<div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1">
+<label class="font-label-sm text-label-sm text-outline">الاستيعاب:</label>
+<div class="flex items-center">
+<input class="w-12 bg-transparent text-center font-code text-primary font-headline-sm focus:outline-none" max="100" min="0" type="number" value="90"/>
+<span class="text-primary font-code text-label-sm">%</span>
+</div>
+</div>
+</div>
+<div class="px-space-sm py-1 bg-surface-container-high text-on-surface-variant font-label-sm text-[12px] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[16px]">equalizer</span>
+<span>متوسط الدفعة لهذا المعمل: <strong class="font-code text-secondary">88%</strong></span>
+</div>
+</div>
+</article>
+<!-- Card 3: Lecture 03 (Uncompleted) -->
+<article class="bg-surface-container p-space-md flex flex-col gap-space-md shadow-sm transition-all hover:bg-surface-container-high/60">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 bg-surface-container-highest text-outline flex items-center justify-center font-display text-headline-sm shrink-0">
+              03
+            </div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-space-xs py-0.5 bg-surface-container-highest text-tertiary font-label-sm text-[11px]">مقرر قادم</span>
+<span class="px-space-xs py-0.5 bg-surface-container-highest text-on-surface-variant font-label-sm text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 50 دقيقة
+                </span>
+<span class="px-space-xs py-0.5 bg-surface-container-highest text-on-surface-variant font-label-sm text-[11px]">سلايدات ونماذج جدار الحماية</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mt-1">
+                المحاضرة 03: هجمات حجب الخدمة الموزعة (DDoS) وآليات التصدي على مستوى السحابة
+              </h4>
+<p class="font-body-sm text-body-sm text-outline">
+                تحليل هجمات SYN Flood و UDP Amplification وكيفية ضبط قوائم التحكم بالوصول ACL وسجلات تدفق NetFlow.
+              </p>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs shrink-0">
+<button class="px-space-sm py-space-xs bg-surface-container-highest hover:bg-surface-bright text-on-surface font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>مشاهدة التسجيل الأكاديمي</span>
+</button>
+<button class="px-space-sm py-space-xs bg-surface-container-lowest hover:bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[18px]">bookmark_add</span>
+<span>حفظ في قائمة المراجعة</span>
+</button>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-space-md pt-space-xs bg-surface-container-lowest p-space-sm">
+<div class="flex items-center gap-space-md">
+<label class="flex items-center gap-space-xs cursor-pointer select-none">
+<input class="w-4 h-4 text-primary bg-surface-container-highest rounded-none focus:ring-0 accent-primary" type="checkbox"/>
+<span class="font-headline-sm text-body-sm text-outline">لم يتم الإطلاع بعد</span>
+</label>
+<div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1">
+<label class="font-label-sm text-label-sm text-outline">الاستيعاب:</label>
+<input class="w-16 bg-transparent text-center font-code text-on-surface text-label-sm focus:outline-none" max="100" min="0" placeholder="0-100" type="number"/>
+<span class="text-outline font-code text-label-sm">%</span>
+</div>
+</div>
+<div class="px-space-sm py-1 bg-surface-container-high text-on-surface-variant font-label-sm text-[12px] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-outline text-[16px]">query_stats</span>
+<span>متوسط استيعاب الدفعة: <strong class="font-code text-on-surface">74%</strong></span>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Content Block 2: Exams & Assessments -->
+<section class="flex flex-col gap-space-md pt-space-sm" id="section-exams">
+<div class="flex items-center justify-between">
+<div class="flex flex-col gap-1">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">الإمتحانات الخاصة بالمادة وجداول التقييم</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">متابعة مواعيد الكويزات، الاختبارات النصفية، ومناقشات المشاريع المعملية المعتمدة.</p>
+</div>
+<div class="hidden sm:flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1 text-label-sm text-outline">
+<span class="material-symbols-outlined text-[16px] text-primary">verified_user</span>
+<span>مراقبة إلكترونية آمنة عبر المتصفح الأكاديمي المعتمد</span>
+</div>
+</div>
+<!-- Exam Cards Matrix -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-sm">
+<!-- Exam 1: Active Quiz -->
+<div class="bg-surface-container p-space-md flex flex-col justify-between gap-space-md relative overflow-hidden shadow-sm">
+<div class="absolute top-0 right-0 left-0 h-1 bg-primary"></div>
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="px-space-xs py-0.5 bg-primary/20 text-primary font-label-sm text-[11px] flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+              متاح الآن للإجراء
+            </span>
+<span class="font-code text-label-sm text-outline">QUIZ-01 // 5%</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-headline-md text-headline-md text-on-surface">الكويز الأول: أساسيات التشفير</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              10 أسئلة اختيار من متعدد تغطي المحاضرات 01 و 02 ومفاهيم إدارة مفاتيح التشفير.
+            </p>
+</div>
+<div class="bg-surface-container-lowest p-space-sm flex flex-col gap-1">
+<div class="flex items-center justify-between text-label-sm">
+<span class="text-outline">المدة الزمنية:</span>
+<span class="text-on-surface font-code">20 دقيقة</span>
+</div>
+<div class="flex items-center justify-between text-label-sm">
+<span class="text-outline">الموعد النهائي:</span>
+<span class="text-tertiary font-code">اليوم، 11:59 مساءً</span>
+</div>
+</div>
+</div>
+<button class="w-full py-space-sm bg-primary hover:bg-primary-fixed text-on-primary font-headline-sm text-body-sm flex items-center justify-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[20px]">timer</span>
+<span>بدء الاختبار الآن</span>
+</button>
+</div>
+<!-- Exam 2: Midterm Exam (Upcoming) -->
+<div class="bg-surface-container p-space-md flex flex-col justify-between gap-space-md relative overflow-hidden shadow-sm">
+<div class="absolute top-0 right-0 left-0 h-1 bg-secondary"></div>
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="px-space-xs py-0.5 bg-secondary-container/30 text-secondary font-label-sm text-[11px]">
+              مجدول قريباً
+            </span>
+<span class="font-code text-label-sm text-outline">MIDTERM // 25%</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-headline-md text-headline-md text-on-surface">الإختبار النصفي الشامل (Midterm Exam)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              امتحان تحريري حضوري يشمل الجانبين النظري والمعملي من الوحدة الأولى وحتى الرابعة.
+            </p>
+</div>
+<div class="bg-surface-container-lowest p-space-sm flex flex-col gap-1">
+<div class="flex items-center justify-between text-label-sm">
+<span class="text-outline">تاريخ الانعقاد:</span>
+<span class="text-secondary font-code">الثلاثاء القادم (10:00 ص)</span>
+</div>
+<div class="flex items-center justify-between text-label-sm">
+<span class="text-outline">القاعة والمقر:</span>
+<span class="text-on-surface">مدرج كلية الحاسب (Hall C-3)</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="flex-1 py-space-sm bg-surface-container-highest hover:bg-surface-bright text-on-surface font-headline-sm text-body-sm flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[18px]">map</span>
+<span>تعليمات القاعة</span>
+</button>
+<button class="p-space-sm bg-surface-container-highest hover:bg-surface-bright text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">calendar_add_on</span>
+</button>
+</div>
+</div>
+<!-- Exam 3: Past Lab Exam (Graded) -->
+<div class="bg-surface-container p-space-md flex flex-col justify-between gap-space-md relative overflow-hidden shadow-sm">
+<div class="absolute top-0 right-0 left-0 h-1 bg-outline-variant"></div>
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="px-space-xs py-0.5 bg-surface-container-highest text-outline font-label-sm text-[11px]">
+              مغلق / تم الرصد
+            </span>
+<span class="font-code text-label-sm text-primary">درجة مكتملة</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-headline-md text-headline-md text-on-surface">إختبار المعمل العملي الأول (Lab Exam 1)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              تحليل سيناريو هجوم Man-in-the-middle واستعادة البيانات من تسجيلات الشبكة.
+            </p>
+</div>
+<div class="bg-surface-container-lowest p-space-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-outline text-label-sm">النتيجة النهائية:</span>
+<span class="font-display text-headline-md text-primary">19 <span class="text-body-sm text-outline">/ 20</span></span>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-outline text-label-sm">التقدير:</span>
+<span class="font-headline-sm text-primary">ممتاز (A+)</span>
+</div>
+</div>
+</div>
+<button class="w-full py-space-sm bg-surface-container-highest hover:bg-surface-bright text-on-surface font-headline-sm text-body-sm flex items-center justify-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[18px]">assignment_turned_in</span>
+<span>مراجعة نموذج الإجابة وتغذية المصحح</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Content Block 3: Discussion Arena & Community Features -->
+<section class="flex flex-col gap-space-md pt-space-sm" id="section-discussions">
+<div class="flex items-center justify-between">
+<div class="flex flex-col gap-1">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">ساحة المناقشات ومجتمع المادة</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">تفاعل تفاعلي مباشر مع أستاذ المقرر والزملاء لمناقشة المشاكل المعقدة والاستفسارات البرمجية.</p>
+</div>
+<span class="font-code text-label-sm text-primary">28 استفسار نشط هذا الأسبوع</span>
+</div>
+<!-- Top Spotlight: Question of the Week & Hero of the Week -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-md">
+<!-- Question of the Week Banner -->
+<div class="lg:col-span-2 bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest p-space-lg relative overflow-hidden shadow-md">
+<div class="absolute -right-10 -bottom-10 w-48 h-48 rounded-full bg-tertiary-container/10 blur-2xl pointer-events-none"></div>
+<div class="flex flex-col gap-space-md relative z-10">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-tertiary">
+<span class="material-symbols-outlined text-[24px]">psychology</span>
+<span class="font-headline-sm text-headline-sm">سؤال الأسبوع التحدي من أستاذ المادة</span>
+</div>
+<span class="px-space-xs py-0.5 bg-tertiary/10 text-tertiary font-code text-label-sm">+10 نقاط تميز أكاديمي</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest/80 backdrop-blur-sm">
+<p class="font-headline-sm text-body-lg text-on-surface leading-relaxed">
+              "كيف يمكن التمييز عملياً بين هجمات SYN Flood وهجمات HTTP Flood على مستوى طبقات نموذج OSI، وما هي المؤشرات الإحصائية التي تجعل خوارزمية كشف التسلل تميز حركة المرور الشرعية عن الاحتيالية بدون التأثير على زمن الاستجابة (Latency)؟"
+            </p>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-space-sm text-label-sm text-outline">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">forum</span> 35 إجابة مقدمة</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">timer</span> ينتهي التحدي بعد 48 ساعة</span>
+</div>
+<button class="px-space-md py-space-xs bg-tertiary-container hover:bg-tertiary text-on-tertiary font-headline-sm text-body-sm flex items-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[18px]">add_comment</span>
+<span>أضف إجابتك للمنافسة على بطل الأسبوع</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Hero of the Week Card -->
+<div class="bg-surface-container p-space-lg flex flex-col justify-between gap-space-md relative overflow-hidden shadow-md">
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-tertiary to-primary"></div>
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-1 uppercase">
+<span class="material-symbols-outlined text-[18px]">workspace_premium</span>
+              بطل الأسبوع في المقرر
+            </span>
+<span class="font-code text-label-sm text-outline">TOP CONTRIBUTOR</span>
+</div>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<div class="w-14 h-14 bg-surface-container-highest flex items-center justify-center text-tertiary text-headline-lg font-display">
+              س
+            </div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-sm text-on-surface">سارة المهدي</span>
+<span class="font-body-sm text-body-sm text-primary">طالبة متميزة // الدفعة 2025</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            حصلت على أعلى نسبة تقييم من أستاذ المادة والزملاء عن شرحها المعمق لبروتوكول Kerberos وتوثيق ثغراته العملية.
+          </p>
+</div>
+<div class="grid grid-cols-2 gap-space-xs bg-surface-container-lowest p-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-outline">إجابات معتمدة</span>
+<span class="font-display text-headline-sm text-on-surface">24 <span class="text-label-sm text-primary">إجابة</span></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-outline">شكر وتقدير الزملاء</span>
+<span class="font-display text-headline-sm text-tertiary">142 <span class="text-label-sm text-outline">إعجاب</span></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Free Community Forum Feed -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-md">
+<!-- Main Forum Column -->
+<div class="lg:col-span-2 flex flex-col gap-space-sm">
+<!-- New Post Box -->
+<div class="bg-surface-container p-space-md flex flex-col gap-space-sm shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-headline-sm text-label-sm">
+              أ
+            </div>
+<span class="font-headline-sm text-body-md text-on-surface">شارك تساؤلاً أو كوداً برمجياً مع مجتمع المادة</span>
+</div>
+<textarea class="w-full bg-surface-container-lowest p-space-sm text-on-surface placeholder:text-outline font-body-sm text-body-sm resize-none focus:outline-none focus:ring-1 focus:ring-primary transition-all" placeholder="اطرح استفساراً، معضلة برمجية، أو ناقش مسألة في اختبارات السنوات السابقة..." rows="3"></textarea>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<button class="p-1.5 bg-surface-container-highest hover:bg-surface-bright text-on-surface-variant hover:text-on-surface flex items-center justify-center" title="إرفاق مقتطف كود">
+<span class="material-symbols-outlined text-[18px]">code</span>
+</button>
+<button class="p-1.5 bg-surface-container-highest hover:bg-surface-bright text-on-surface-variant hover:text-on-surface flex items-center justify-center" title="إرفاق صورة أو رسم تخطيطي">
+<span class="material-symbols-outlined text-[18px]">image</span>
+</button>
+<button class="p-1.5 bg-surface-container-highest hover:bg-surface-bright text-on-surface-variant hover:text-on-surface flex items-center justify-center" title="إشارة إلى محاضرة محددة">
+<span class="material-symbols-outlined text-[18px]">link</span>
+</button>
+</div>
+<button class="px-space-md py-space-xs bg-primary hover:bg-primary-fixed text-on-primary font-headline-sm text-body-sm flex items-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span>نشر الاستفسار</span>
+</button>
+</div>
+</div>
+<!-- Feed Post 1 -->
+<article class="bg-surface-container p-space-md flex flex-col gap-space-sm shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 bg-secondary-container text-on-secondary flex items-center justify-center font-headline-sm text-body-md">
+                ع
+              </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">عمر فهد الجابري</span>
+<span class="font-label-sm text-label-sm text-outline">طالب // قبل 3 ساعات</span>
+</div>
+</div>
+<span class="px-space-xs py-0.5 bg-surface-container-highest text-secondary font-code text-label-sm">
+              #RSA_Key_Generation
+            </span>
+</div>
+<h5 class="font-headline-md text-headline-sm text-on-surface mt-1">
+            استفسار بخصوص السؤال الثالث في كويز السنة الماضية عن حساب d في خوارزمية RSA
+          </h5>
+<p class="font-body-md text-body-sm text-on-surface-variant leading-relaxed">
+            عند حساب المعكوس الضربي المعياري (Modular Multiplicative Inverse) باستخدام خوارزمية إقليدس الممتدة عندما تكون قيمة e=17 و phi(n)=3120، هل يُلزم كتابة خطوات مصفوفة القسمة بالتفصيل في ورقة الامتحان أم نكتفي بالقيمة النهائية؟ وهل هناك طريقة أسرع للتحقق يدوياً؟
+          </p>
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs bg-surface-container-lowest p-space-xs">
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-1 text-primary hover:text-primary-fixed font-headline-sm text-label-sm px-space-xs py-1 transition-colors">
+<span class="material-symbols-outlined text-[18px]">thumb_up</span>
+<span>15 تصويت مفيد</span>
+</button>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-on-surface font-headline-sm text-label-sm px-space-xs py-1 transition-colors">
+<span class="material-symbols-outlined text-[18px]">reply</span>
+<span>8 ردود ونقاشات</span>
+</button>
+</div>
+<button class="text-secondary hover:underline font-label-sm text-label-sm flex items-center gap-1">
+<span>عرض تفاصيل المناقشة بالكامل</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</button>
+</div>
+</article>
+<!-- Feed Post 2 -->
+<article class="bg-surface-container p-space-md flex flex-col gap-space-sm shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 bg-surface-container-highest text-primary flex items-center justify-center font-headline-sm text-body-md">
+                م
+              </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">م. نورة السليمان</span>
+<span class="font-label-sm text-label-sm text-primary">معيدة المادة ومسؤولة المختبر</span>
+</div>
+</div>
+<span class="px-space-xs py-0.5 bg-primary/20 text-primary font-code text-label-sm">
+              #تنبيه_معملي
+            </span>
+</div>
+<h5 class="font-headline-md text-headline-sm text-on-surface mt-1">
+            تحديث صورة بيئة Kali Linux المخصصة للمعمل رقم 3
+          </h5>
+<p class="font-body-md text-body-sm text-on-surface-variant leading-relaxed">
+            تم تحديث ملف الـ OVA على خادم الكلية الداخلي. تم إصلاح تعارض إصدارات مكتبة scapy وإضافة ملفات الـ Pcap المطلوبة للتمرين الختامي. يرجى التحديث قبل يوم الأحد القادم.
+          </p>
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs bg-surface-container-lowest p-space-xs">
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-1 text-primary hover:text-primary-fixed font-headline-sm text-label-sm px-space-xs py-1 transition-colors">
+<span class="material-symbols-outlined text-[18px]">thumb_up</span>
+<span>42 تأكيد استلام</span>
+</button>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-on-surface font-headline-sm text-label-sm px-space-xs py-1 transition-colors">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>12 استفسار</span>
+</button>
+</div>
+<span class="font-code text-label-sm text-outline">تم التثبيت بواسطة المشرف</span>
+</div>
+</article>
+</div>
+<!-- Community Sidebar -->
+<div class="flex flex-col gap-space-sm">
+<!-- Office Hours -->
+<div class="bg-surface-container p-space-md flex flex-col gap-space-sm shadow-sm">
+<div class="flex items-center gap-space-xs text-secondary">
+<span class="material-symbols-outlined text-[20px]">support_agent</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">الساعات المكتبية المباشرة</h4>
+</div>
+<div class="flex flex-col gap-space-xs text-body-sm text-on-surface-variant pt-space-xs">
+<div class="flex justify-between items-center bg-surface-container-lowest p-space-xs">
+<span>د. خالد السعدي</span>
+<span class="font-code text-primary text-label-sm">الأحد 12:00 - 02:00 م</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container-lowest p-space-xs">
+<span>م. نورة السليمان</span>
+<span class="font-code text-secondary text-label-sm">الأربعاء 10:00 - 12:00 م</span>
+</div>
+</div>
+<button class="w-full py-space-xs bg-surface-container-highest hover:bg-surface-bright text-on-surface font-label-sm text-label-sm flex items-center justify-center gap-1 transition-colors mt-space-xs">
+<span class="material-symbols-outlined text-[16px]">video_call</span>
+<span>حجز موعد استشارة أكاديمية</span>
+</button>
+</div>
+<!-- Academic Telegram/Slack Channel -->
+<div class="bg-surface-container p-space-md flex flex-col gap-space-sm shadow-sm">
+<div class="flex items-center justify-between">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">مجموعة المناقشة السريعة</h4>
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">
+            مجموعة مخصصة لتبادل الحلول السريعة والتنبيهات المباشرة بين طلبة الدفعة.
+          </p>
+<div class="bg-surface-container-lowest p-space-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-outline">المنضمون حالياً:</span>
+<span class="font-code text-on-surface">118 طالباً وطالبة</span>
+</div>
+<button class="px-space-sm py-1 bg-primary text-on-primary font-headline-sm text-label-sm flex items-center gap-1">
+<span>انضمام</span>
+<span class="material-symbols-outlined text-[16px]">group_add</span>
+</button>
+</div>
+</div>
+<!-- Useful Course Reference Links -->
+<div class="bg-surface-container p-space-md flex flex-col gap-space-sm shadow-sm">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">المراجع الإضافية الموصى بها</h4>
+<ul class="flex flex-col gap-space-xs font-body-sm text-body-sm">
+<li>
+<a class="p-space-xs bg-surface-container-lowest hover:bg-surface-container-highest text-on-surface flex items-center justify-between transition-colors" href="#">
+<span class="truncate">كتاب: Cryptography &amp; Network Security (Stallings)</span>
+<span class="material-symbols-outlined text-outline text-[16px]">open_in_new</span>
+</a>
+</li>
+<li>
+<a class="p-space-xs bg-surface-container-lowest hover:bg-surface-container-highest text-on-surface flex items-center justify-between transition-colors" href="#">
+<span class="truncate">منصة تدريب: OverTheWire - Bandit Wargame</span>
+<span class="material-symbols-outlined text-outline text-[16px]">open_in_new</span>
+</a>
+</li>
+<li>
+<a class="p-space-xs bg-surface-container-lowest hover:bg-surface-container-highest text-on-surface flex items-center justify-between transition-colors" href="#">
+<span class="truncate">دليل معايير NIST للتشفير المتقدم (SP 800-38D)</span>
+<span class="material-symbols-outlined text-outline text-[16px]">open_in_new</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+  // Tab Switching Functionality
+  function switchAcademicTab(tabId) {
+    const tabs = ['lectures', 'exams', 'discussions'];
+    const activeClasses = ['bg-primary', 'text-on-primary'];
+    const inactiveClasses = ['text-on-surface-variant', 'hover:text-on-surface', 'hover:bg-surface-container'];
+
+    tabs.forEach(t => {
+      const btn = document.getElementById('tab-btn-' + t);
+      const section = document.getElementById('section-' + t);
+      
+      if (t === tabId) {
+        btn.classList.add(...activeClasses);
+        btn.classList.remove(...inactiveClasses);
+        if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        btn.classList.remove(...activeClasses);
+        btn.classList.add(...inactiveClasses);
+      }
+    });
+  }
+
+  // Privacy Toggle Interaction
+  let isPublicMode = true;
+  function toggleAcademicPrivacy() {
+    isPublicMode = !isPublicMode;
+    const stateText = document.getElementById('privacy-state-text');
+    const toggleBtn = document.getElementById('privacy-toggle-btn');
+    const knob = document.getElementById('privacy-knob');
+    const infoBox = document.getElementById('privacy-info-box');
+
+    if (isPublicMode) {
+      stateText.innerText = 'إظهار للعامة (Public)';
+      stateText.className = 'font-label-sm text-label-sm text-primary font-code';
+      toggleBtn.className = 'w-11 h-6 bg-primary p-0.5 flex items-center transition-colors justify-start';
+      knob.className = 'w-5 h-5 bg-on-primary shadow-sm transform transition-transform translate-x-5';
+      infoBox.innerText = 'يتم تضمين نسبة إنجازك واسمك في إحصائيات استيعاب الدفعة العامة ولوحة شرف المتفوقين.';
+    } else {
+      stateText.innerText = 'إخفاء - الوضع الخاص (Private)';
+      stateText.className = 'font-label-sm text-label-sm text-tertiary font-code';
+      toggleBtn.className = 'w-11 h-6 bg-surface-container-highest p-0.5 flex items-center transition-colors justify-start';
+      knob.className = 'w-5 h-5 bg-outline shadow-sm transform transition-transform translate-x-0';
+      infoBox.innerText = 'تقدمك الدراسي مرئي لك فقط، ولا يظهر لزملائك في الدفعة أو في لوحة المتصدرين العامة.';
+    }
+  }
+
+  // Save Preferences Feedback
+  function saveAcademicPreferences() {
+    const btnText = document.getElementById('save-btn-text');
+    btnText.innerText = 'تم الحفظ بنجاح ✓';
+    setTimeout(() => {
+      btnText.innerText = 'حفظ التفضيلات';
+    }, 2000);
+  }
+
+  // Lecture Filtering
+  function filterLectures(type) {
+    const buttons = document.querySelectorAll('.lecture-filter-btn');
+    buttons.forEach(b => {
+      b.classList.remove('bg-surface-container', 'text-primary');
+      b.classList.add('text-on-surface-variant');
+    });
+    event.currentTarget.classList.add('bg-surface-container', 'text-primary');
+    event.currentTarget.classList.remove('text-on-surface-variant');
+  }
+
+  /* فتح/إغلاق القائمة الجانبية لصفحة المادة على الجوال والتابلت */
+  function toggleCourseSidebar() {
+    var sidebar = document.getElementById('courseSidebar');
+    var overlay = document.getElementById('courseSidebarOverlay');
+    var btn = document.querySelector('.sidebar-toggle-btn');
+    var isOpen = sidebar.classList.toggle('is-open');
+    overlay.classList.toggle('is-open', isOpen);
+    if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+</script></main></div></body></html>

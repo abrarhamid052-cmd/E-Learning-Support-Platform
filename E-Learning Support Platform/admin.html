@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link rel="stylesheet" href="styles.css"/><link rel="icon" href="logo.svg" type="image/svg+xml"/><script src="https://cdn.tailwindcss.com"></script><script src="tailwind.config.js"></script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 right-0 left-0 z-50 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm" href="home.html"><div class="brand-logo w-9 h-9"><img alt="شعار منصة دعم التعليم الإلكتروني" src="logo.svg"/></div><div class="flex flex-col"><span class="brand-wordmark font-headline-sm text-headline-sm">منصة دعم التعليم الإلكتروني</span><span class="font-label-sm text-label-sm text-on-surface-variant">بوابة الإشراف والرقابة الأكاديمية</span></div></a><span class="inline-flex items-center px-space-sm py-space-xs rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">المشرف العام</span></div><div class="flex-1 max-w-md hidden lg:block"><div class="relative flex items-center"><span class="material-symbols-outlined absolute right-space-sm text-outline pointer-events-none text-body-lg">search</span><input class="w-full pr-space-xl pl-space-md py-space-xs rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" placeholder="البحث عن طالب، دورة تدريبية، أو طلب مراجعة..." type="text"/></div></div><div class="flex items-center gap-space-md"><button aria-controls="adminSidebar" aria-expanded="false" aria-label="فتح قائمة لوحة المشرف" class="sidebar-toggle-btn w-9 h-9 rounded-lg items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" onclick="toggleAdminSidebar()" type="button"><span class="material-symbols-outlined text-[22px]">menu</span></button><a class="hidden sm:flex items-center gap-1 px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors font-label-sm text-label-sm" href="home.html"><span class="material-symbols-outlined text-[18px]">arrow_forward</span><span>العودة للموقع الرئيسي</span></a><div class="relative"><button class="p-space-sm rounded-full text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined block">notifications</span></button><span class="absolute top-1 right-1 w-2.5 h-2.5 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ring-2 ring-primary-fixed"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden md:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface">د. عبد الله الشمري</span><span class="font-label-sm text-label-sm text-on-surface-variant">مراقب جودة التعليم</span></div></div></div></div></header><aside class="app-sidebar fixed right-0 top-16 h-[calc(100vh-4rem)] w-64 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex flex-col justify-between py-space-md" id="adminSidebar"><nav class="flex flex-col gap-space-xs px-space-sm" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg shadow-sm"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm transition-all bg-primary-container text-on-primary font-label-lg rounded-lg shadow-sm" data-path="overview-dashboard" href="admin.html"><span class="material-symbols-outlined text-body-lg">dashboard</span><span>الرئيسية</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-lg text-label-lg transition-all" data-path="pending-requests" href="#pending-requests-section"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-body-lg">pending_actions</span><span>الطلبات المعلقة</span></div><span class="px-space-xs py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">18</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-lg text-label-lg transition-all" data-path="content-management" href="#"><span class="material-symbols-outlined text-body-lg">library_books</span><span>إدارة المحتوى</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-lg text-label-lg transition-all" data-path="rejected-log" href="#rejected-log-section"><span class="material-symbols-outlined text-body-lg">cancel_presentation</span><span>سجل المرفوضات</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-lg text-label-lg transition-all" data-path="password-reset-queue" href="#"><span class="material-symbols-outlined text-body-lg">lock_reset</span><span>إعادة تعيين كلمات المرور</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-lg text-label-lg transition-all" data-path="audit-reports" href="#"><span class="material-symbols-outlined text-body-lg">insights</span><span>تقارير التدقيق الأكاديمي</span></a></nav><div class="px-space-sm flex flex-col gap-space-xs"><div class="p-space-sm rounded-lg bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-between"><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface-variant">حالة النظام</span><span class="font-label-md text-label-md text-primary flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary"></span> متصل ومستقر</span></div><span class="font-label-sm text-label-sm text-outline">v2.4.0</span></div><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-error hover:bg-error-container hover:text-on-error-container font-label-lg text-label-lg transition-all" data-path="logout" href="login.html"><span class="material-symbols-outlined text-body-lg">logout</span><span>تسجيل الخروج</span></a></div></aside><div class="sidebar-overlay" id="adminSidebarOverlay" onclick="toggleAdminSidebar()"></div><div class="app-content-with-sidebar pr-64"><main class="pt-16 w-full min-h-screen bg-background px-gutter py-space-lg"><div class="mb-space-lg flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant"><span class="material-symbols-outlined text-body-sm">home</span><span>لوحة القيادة</span><span class="material-symbols-outlined text-body-sm">chevron_left</span><span class="text-primary font-semibold">إدارة الإشراف</span></div><div class="flex flex-col w-full gap-space-xl" dir="rtl">
+<!-- Header Executive Alert & Quick Summary -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-display-lg" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<h1 class="font-headline-md text-headline-md text-on-surface font-bold">بوابة الرقابة والاعتماد الأكاديمي</h1>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">مباشر ومُوثق</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+          متابعة فورية للطلبات الأكاديمية، إدارة التمديدات الطارئة للاختبارات، ومراجعة المحتوى والاعتمادات الطلابية.
+        </p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full md:w-auto shrink-0">
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-all" onclick="refreshQueueStats()" type="button">
+<span class="material-symbols-outlined text-body-md">sync</span>
+<span>تحديث المعطيات</span>
+</button>
+<button class="px-space-lg py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-2 shadow-sm transition-all" onclick="switchMainTab('tab-accounts')" type="button">
+<span class="material-symbols-outlined text-body-md">rule</span>
+<span>بدء التدقيق السريع</span>
+</button>
+</div>
+</div>
+<!-- Module 1: 4 Executive KPI Metrics Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md w-full">
+<!-- Card 1: Pending Queue -->
+<div class="relative overflow-hidden bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">الطلبات قيد الانتظار</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-display-lg text-display-lg font-bold text-tertiary">28</span>
+<span class="font-label-sm text-label-sm text-tertiary-container font-semibold">طلب جديد</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed/60 flex items-center justify-center text-on-tertiary-fixed shrink-0">
+<span class="material-symbols-outlined">pending_actions</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low p-2 rounded-lg">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary"></span> 12 حساب</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary"></span> 9 اختبارات</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-tertiary"></span> 7 فعاليات</span>
+</div>
+</div>
+<!-- Card 2: Active Materials & Courses -->
+<div class="relative overflow-hidden bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">المقررات والمواد النشطة</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-display-lg text-display-lg font-bold text-primary">46</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">مادة معتمدة</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed shrink-0">
+<span class="material-symbols-outlined">school</span>
+</div>
+</div>
+<div class="mt-space-md flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="inline-flex items-center gap-1 text-primary font-bold">
+<span class="material-symbols-outlined text-body-sm">trending_up</span>
+          +3 مواد مضافة هذا الفصل
+        </span>
+<span class="text-outline">100% مغطاة</span>
+</div>
+</div>
+<!-- Card 3: Active & Extended Exams -->
+<div class="relative overflow-hidden bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">اختبارات جارية وتحت التمديد</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-display-lg text-display-lg font-bold text-secondary">05</span>
+<span class="font-label-sm text-label-sm text-secondary-container text-on-secondary-fixed-variant font-semibold">جلسات جارية</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-fixed shrink-0">
+<span class="material-symbols-outlined">timer</span>
+</div>
+</div>
+<div class="mt-space-md flex items-center justify-between font-label-sm text-label-sm">
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> 2 تنتهي خلال 30 دقيقة
+        </span>
+<a class="text-primary hover:underline" href="#exam-extension-tool">تمديد طارئ</a>
+</div>
+</div>
+<!-- Card 4: Rejected Requests (7-Day Cache) -->
+<div class="relative overflow-hidden bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">سجل المرفوضات المؤقت</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-display-lg text-display-lg font-bold text-error">14</span>
+<span class="font-label-sm text-label-sm text-error font-semibold">طلب محفوظ (7 أيام)</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-error-container flex items-center justify-center text-on-error-container shrink-0">
+<span class="material-symbols-outlined">rule_folder</span>
+</div>
+</div>
+<div class="mt-space-md flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="text-outline">متاحة للاستعادة والمراجعة</span>
+<a class="text-error font-semibold hover:underline" href="#rejected-log-section">استعراض السجل</a>
+</div>
+</div>
+</div>
+<!-- Module 2: Pending Requests Queue with 3 Dynamic Tabs -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md" id="pending-requests-section">
+<!-- Section Header & Filter Controls -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-body-lg">playlist_add_check</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">طابور مراجعة واعتماد الطلبات</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">حدد الطلب المناسب للفحص والتحقق من الأهلية والبيانات المرفقة</p>
+</div>
+</div>
+<!-- Search & Sorting Filters -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<div class="relative flex items-center min-w-[240px]">
+<span class="material-symbols-outlined absolute right-space-sm text-outline pointer-events-none text-body-md">search</span>
+<input class="w-full pr-9 pl-space-md py-2 rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" id="queueSearchInput" onkeyup="filterQueueCards()" placeholder="بحث بالاسم أو الرقم أو الرمز..." type="text"/>
+</div>
+<select class="px-space-md py-2 rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary">
+<option value="urgent">الأعلى أولوية زمنية</option>
+<option value="newest">الأحدث وصولاً</option>
+<option value="faculty">حسب الكلية والقسم</option>
+</select>
+<button class="p-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant transition-colors" title="خيارات تصفية إضافية" type="button">
+<span class="material-symbols-outlined block">tune</span>
+</button>
+</div>
+</div>
+<!-- Switchable Tabs Bar -->
+<div class="flex items-center gap-space-xs p-1 bg-surface-container-low rounded-xl">
+<button class="tab-button flex-1 py-2.5 px-space-md rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-space-xs transition-all bg-surface-container-lowest text-primary shadow-sm font-bold" id="tabBtn-accounts" onclick="switchMainTab('tab-accounts')" type="button">
+<span class="material-symbols-outlined text-body-lg">badge</span>
+<span>طلبات إنشاء الحسابات</span>
+<span class="px-2 py-0.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm">12</span>
+</button>
+<button class="tab-button flex-1 py-2.5 px-space-md rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-space-xs transition-all text-on-surface-variant hover:text-on-surface" id="tabBtn-exams" onclick="switchMainTab('tab-exams')" type="button">
+<span class="material-symbols-outlined text-body-lg">assignment</span>
+<span>طلبات إنشاء الإمتحانات</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm">9</span>
+</button>
+<button class="tab-button flex-1 py-2.5 px-space-md rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-space-xs transition-all text-on-surface-variant hover:text-on-surface" id="tabBtn-events" onclick="switchMainTab('tab-events')" type="button">
+<span class="material-symbols-outlined text-body-lg">event</span>
+<span>طلبات إضافة الأحداث</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">7</span>
+</button>
+</div>
+<!-- Tab Panels Container -->
+<div class="mt-space-sm">
+<!-- TAB 1: Account Requests Panel -->
+<div class="tab-content flex flex-col gap-space-md" id="tab-accounts">
+<!-- Account Card 1 -->
+<div class="queue-item bg-surface-container-low/60 hover:bg-surface-container-low transition-all rounded-xl p-space-md flex flex-col xl:flex-row items-start xl:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-full bg-primary-fixed text-on-primary-fixed font-headline-sm font-bold flex items-center justify-center shrink-0">
+              أش
+            </div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface student-name">أسامة عبدالرحمن الشمري</span>
+<span class="px-2 py-0.5 rounded-md bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm">@osama_sh</span>
+<span class="px-2 py-0.5 rounded-full bg-[#ECFDF5] text-[#065F46] font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#059669]"></span> بطاقة جامعية متطابقة
+                </span>
+</div>
+<div class="flex flex-wrap items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-body-sm">school</span>
+                  كلية علوم الحاسب والمعلومات - هندسة البرمجيات
+                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm">mail</span>
+                  o.alshammari@stu.edu.sa
+                </span>
+<span class="flex items-center gap-1 text-[#059669] font-medium">
+<span class="material-symbols-outlined text-body-sm">chat</span>
+<span dir="ltr">+966 50 123 4567</span>
+</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full xl:w-auto justify-end shrink-0">
+<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-1.5 transition-all shadow-sm" onclick="openApprovalModal('حساب طالب', 'أسامة عبدالرحمن الشمري (@osama_sh)', 'كلية علوم الحاسب - هندسة البرمجيات')" type="button">
+<span class="material-symbols-outlined text-body-md">check_circle</span>
+<span>قبول الحساب</span>
+</button>
+<button class="px-space-md py-2 rounded-lg bg-error-container hover:bg-error text-on-error-container hover:text-on-error font-label-md text-label-md flex items-center gap-1.5 transition-all" onclick="openRejectModal('حساب طالب', 'أسامة عبدالرحمن الشمري', 'ACC-9921')" type="button">
+<span class="material-symbols-outlined text-body-md">cancel</span>
+<span>رفض الحساب</span>
+</button>
+</div>
+</div>
+<!-- Account Card 2 -->
+<div class="queue-item bg-surface-container-low/60 hover:bg-surface-container-low transition-all rounded-xl p-space-md flex flex-col xl:flex-row items-start xl:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed text-on-secondary-fixed font-headline-sm font-bold flex items-center justify-center shrink-0">
+              رن
+            </div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface student-name">ريم ناصر الدوسري</span>
+<span class="px-2 py-0.5 rounded-md bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm">@reem_ald</span>
+<span class="px-2 py-0.5 rounded-full bg-[#FFFBEB] text-[#92400E] font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#D97706]"></span> قيد مطابقة السجل الأكاديمي
+                </span>
+</div>
+<div class="flex flex-wrap items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-body-sm">school</span>
+                  كلية إدارة الأعمال - قسم نظم المعلومات الإدارية
+                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm">mail</span>
+                  r.aldossari@stu.edu.sa
+                </span>
+<span class="flex items-center gap-1 text-[#059669] font-medium">
+<span class="material-symbols-outlined text-body-sm">chat</span>
+<span dir="ltr">+966 55 987 6543</span>
+</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full xl:w-auto justify-end shrink-0">
+<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-1.5 transition-all shadow-sm" onclick="openApprovalModal('حساب طالب', 'ريم ناصر الدوسري (@reem_ald)', 'كلية إدارة الأعمال')" type="button">
+<span class="material-symbols-outlined text-body-md">check_circle</span>
+<span>قبول الحساب</span>
+</button>
+<button class="px-space-md py-2 rounded-lg bg-error-container hover:bg-error text-on-error-container hover:text-on-error font-label-md text-label-md flex items-center gap-1.5 transition-all" onclick="openRejectModal('حساب طالب', 'ريم ناصر الدوسري', 'ACC-9922')" type="button">
+<span class="material-symbols-outlined text-body-md">cancel</span>
+<span>رفض الحساب</span>
+</button>
+</div>
+</div>
+<!-- Account Card 3 -->
+<div class="queue-item bg-surface-container-low/60 hover:bg-surface-container-low transition-all rounded-xl p-space-md flex flex-col xl:flex-row items-start xl:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-headline-sm font-bold flex items-center justify-center shrink-0">
+              في
+            </div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface student-name">فيصل يوسف القحطاني</span>
+<span class="px-2 py-0.5 rounded-md bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm">@faisal_q</span>
+<span class="px-2 py-0.5 rounded-full bg-[#ECFDF5] text-[#065F46] font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#059669]"></span> طلب مستوفي الشروط
+                </span>
+</div>
+<div class="flex flex-wrap items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-body-sm">school</span>
+                  كلية الهندسة - الهندسة الصناعية
+                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm">mail</span>
+                  f.alqahtani@stu.edu.sa
+                </span>
+<span class="flex items-center gap-1 text-[#059669] font-medium">
+<span class="material-symbols-outlined text-body-sm">chat</span>
+<span dir="ltr">+966 54 321 8899</span>
+</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full xl:w-auto justify-end shrink-0">
+<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-1.5 transition-all shadow-sm" onclick="openApprovalModal('حساب طالب', 'فيصل يوسف القحطاني (@faisal_q)', 'كلية الهندسة')" type="button">
+<span class="material-symbols-outlined text-body-md">check_circle</span>
+<span>قبول الحساب</span>
+</button>
+<button class="px-space-md py-2 rounded-lg bg-error-container hover:bg-error text-on-error-container hover:text-on-error font-label-md text-label-md flex items-center gap-1.5 transition-all" onclick="openRejectModal('حساب طالب', 'فيصل يوسف القحطاني', 'ACC-9923')" type="button">
+<span class="material-symbols-outlined text-body-md">cancel</span>
+<span>رفض الحساب</span>
+</button>
+</div>
+</div>
+</div>
+<!-- TAB 2: Exam Creation Requests Panel -->
+<div class="tab-content hidden flex-col gap-space-md" id="tab-exams">
+<!-- Exam Card 1 -->
+<div class="queue-item bg-surface-container-low/60 hover:bg-surface-container-low transition-all rounded-xl p-space-md flex flex-col xl:flex-row items-start xl:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-on-primary-fixed shrink-0">
+<span class="material-symbols-outlined text-headline-sm">quiz</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface student-name">خوارزميات وهياكل البيانات 2 (CS-204)</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">الفصول: 3، 4 و 5</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">35 سؤال (اختيار من متعدد)</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm">schedule</span>
+                  المدة: 60 دقيقة | 24 أكتوبر 10:00 ص إلى 12:00 م
+                </span>
+<span class="flex items-center gap-1 text-on-surface font-semibold">
+<span class="material-symbols-outlined text-body-sm">person</span>
+                  ممثلة الشعبة المنشئة: سارة فهد العتيبي
+                </span>
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-body-sm">verified_user</span>
+                  معتمد من المشرف المساعد
+                </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full xl:w-auto justify-end shrink-0">
+<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-1.5 transition-all shadow-sm" onclick="openApprovalModal('اعتماد اختبار', 'خوارزميات وهياكل البيانات 2 (35 سؤال)', 'مقدم من: سارة فهد العتيبي')" type="button">
+<span class="material-symbols-outlined text-body-md">visibility</span>
+<span>معاينة واعتماد الامتحان</span>
+</button>
+<button class="px-space-md py-2 rounded-lg bg-error-container hover:bg-error text-on-error-container hover:text-on-error font-label-md text-label-md flex items-center gap-1.5 transition-all" onclick="openRejectModal('امتحان فصلي', 'خوارزميات وهياكل البيانات 2', 'EXAM-402')" type="button">
+<span class="material-symbols-outlined text-body-md">block</span>
+<span>رفض مع سبب</span>
+</button>
+</div>
+</div>
+<!-- Exam Card 2 -->
+<div class="queue-item bg-surface-container-low/60 hover:bg-surface-container-low transition-all rounded-xl p-space-md flex flex-col xl:flex-row items-start xl:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed shrink-0">
+<span class="material-symbols-outlined text-headline-sm">history_edu</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface student-name">مقدمة في الذكاء الاصطناعي (AI-101)</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">الاختبار النصفي الموحد</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">45 سؤال + مسائل كودية</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm">schedule</span>
+                  المدة: 90 دقيقة | 26 أكتوبر 01:00 م إلى 03:00 م
+                </span>
+<span class="flex items-center gap-1 text-on-surface font-semibold">
+<span class="material-symbols-outlined text-body-sm">person</span>
+                  المنشئ: د. خالد بن سلطان الرشيد
+                </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full xl:w-auto justify-end shrink-0">
+<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-1.5 transition-all shadow-sm" onclick="openApprovalModal('اعتماد اختبار', 'مقدمة في الذكاء الاصطناعي AI-101', 'مقدم من: د. خالد الرشيد')" type="button">
+<span class="material-symbols-outlined text-body-md">visibility</span>
+<span>معاينة واعتماد الامتحان</span>
+</button>
+<button class="px-space-md py-2 rounded-lg bg-error-container hover:bg-error text-on-error-container hover:text-on-error font-label-md text-label-md flex items-center gap-1.5 transition-all" onclick="openRejectModal('امتحان موحد', 'مقدمة في الذكاء الاصطناعي', 'EXAM-403')" type="button">
+<span class="material-symbols-outlined text-body-md">block</span>
+<span>رفض مع سبب</span>
+</button>
+</div>
+</div>
+</div>
+<!-- TAB 3: Event Creation Requests Panel -->
+<div class="tab-content hidden flex-col gap-space-md" id="tab-events">
+<!-- Event Card 1 -->
+<div class="queue-item bg-surface-container-low/60 hover:bg-surface-container-low transition-all rounded-xl p-space-md flex flex-col xl:flex-row items-start xl:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center text-on-secondary-fixed shrink-0">
+<span class="material-symbols-outlined text-headline-sm">groups</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface student-name">جلسة مراجعة نهائية - مقرر الفيزياء العامة (PHYS-101)</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">طبيعة الحدث: حلقة نقاش تفاعلية</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">حدث أكاديمي رسمي</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-body-sm">videocam</span>
+                  القاعة الافتراضية الكبرى (Zoom 3)
+                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm">calendar_month</span>
+                  الأربعاء 25 أكتوبر | 07:00 م - 09:30 م
+                </span>
+<span class="flex items-center gap-1 font-medium text-on-surface">
+<span class="material-symbols-outlined text-body-sm">person_pin</span>
+                  المنشئ: م. عادل السفياني (نادي الفيزياء والرياضيات)
+                </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full xl:w-auto justify-end shrink-0">
+<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-1.5 transition-all shadow-sm" onclick="openApprovalModal('حدث أكاديمي', 'جلسة مراجعة نهائية - الفيزياء العامة', 'القاعة الافتراضية Zoom 3')" type="button">
+<span class="material-symbols-outlined text-body-md">event_available</span>
+<span>موافقة واعتماد</span>
+</button>
+<button class="px-space-md py-2 rounded-lg bg-error-container hover:bg-error text-on-error-container hover:text-on-error font-label-md text-label-md flex items-center gap-1.5 transition-all" onclick="openRejectModal('حدث أكاديمي', 'جلسة مراجعة نهائية - مقرر الفيزياء', 'EVT-882')" type="button">
+<span class="material-symbols-outlined text-body-md">event_busy</span>
+<span>رفض</span>
+</button>
+</div>
+</div>
+<!-- Event Card 2 -->
+<div class="queue-item bg-surface-container-low/60 hover:bg-surface-container-low transition-all rounded-xl p-space-md flex flex-col xl:flex-row items-start xl:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-tertiary-container text-on-tertiary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-headline-sm">code</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface student-name">ورشة عمل إعداد المشاريع البرمجية التخرج</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">طبيعة الحدث: ورشة عمل تدريبية</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">مفتوح للدفعة 2024</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-body-sm">meeting_room</span>
+                  مدرج كلية الحاسب الرئيسي (مبنى ب)
+                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm">calendar_month</span>
+                  الخميس 26 أكتوبر | 11:00 ص - 01:30 م
+                </span>
+<span class="flex items-center gap-1 font-medium text-on-surface">
+<span class="material-symbols-outlined text-body-sm">person_pin</span>
+                  المنشئ: د. منى عبدالكريم الزهراني
+                </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full xl:w-auto justify-end shrink-0">
+<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-1.5 transition-all shadow-sm" onclick="openApprovalModal('حدث أكاديمي', 'ورشة عمل مشاريع التخرج', 'مدرج كلية الحاسب')" type="button">
+<span class="material-symbols-outlined text-body-md">event_available</span>
+<span>موافقة واعتماد</span>
+</button>
+<button class="px-space-md py-2 rounded-lg bg-error-container hover:bg-error text-on-error-container hover:text-on-error font-label-md text-label-md flex items-center gap-1.5 transition-all" onclick="openRejectModal('حدث أكاديمي', 'ورشة عمل مشاريع التخرج', 'EVT-883')" type="button">
+<span class="material-symbols-outlined text-body-md">event_busy</span>
+<span>رفض</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Module 4: Rejected Requests Log (7-Day Temporary Storage) -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md" id="rejected-log-section">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-body-lg">history_toggle_off</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">سجل الطلبات المرفوضة المؤقتة</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">الطلبات المرفوضة مؤخراً وملاحظات المراقب التوجيهية</p>
+</div>
+</div>
+<div class="px-space-md py-1.5 rounded-full bg-[#FFF1F2] text-[#9F1239] font-label-sm text-label-sm flex items-center gap-1.5 self-start md:self-auto">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span>يتم الاحتفاظ بالطلبات المرفوضة لمدة 7 أيام مع إمكانية التراجع وإعادة الاعتماد</span>
+</div>
+</div>
+<!-- Grid of Rejected Log Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-md">
+<!-- Rejected Item 1 -->
+<div class="p-space-md bg-surface-container-low rounded-xl flex flex-col justify-between gap-space-sm">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">امتحان مرفوض #EXM-391</span>
+<span class="text-outline font-label-sm text-label-sm">منذ يومين (22 أكتوبر - 02:40 م)</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">مقرر الذكاء الاصطناعي المتقدم (CS-441)</h3>
+<span class="text-on-surface-variant font-body-sm text-body-sm">المنشئ: الطالب طارق سامي الحربي (رئيس النشاط الطلابي)</span>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest text-error font-body-sm text-body-sm flex items-start gap-2">
+<span class="material-symbols-outlined text-body-md shrink-0 mt-0.5">report</span>
+<div>
+<strong class="font-semibold block text-on-surface">سبب الرفض الموجه للطالب:</strong>
+              عدم توافق الأسئلة مع خطة المنهج المعتمد للفصل؛ وجود أسئلة من الفصل السابع غير المشمول بالخطة المقررة.
+            </div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-sm text-label-sm text-outline">ينتهي الحفظ: خلال 5 أيام</span>
+<button class="px-space-md py-1.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-1 transition-all" onclick="restoreAndApprove('امتحان CS-441', 'طارق سامي الحربي')" type="button">
+<span class="material-symbols-outlined text-body-md">restore</span>
+<span>إستعادة وموافقة</span>
+</button>
+</div>
+</div>
+<!-- Rejected Item 2 -->
+<div class="p-space-md bg-surface-container-low rounded-xl flex flex-col justify-between gap-space-sm">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">تسجيل حساب #ACC-9884</span>
+<span class="text-outline font-label-sm text-label-sm">أمس (23 أكتوبر - 11:15 ص)</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">طلب تفعيل حساب: نايف بندر السديري</h3>
+<span class="text-on-surface-variant font-body-sm text-body-sm">اسم المستخدم: @naif_sudairi | الرقم الجامعي: 44109821</span>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest text-error font-body-sm text-body-sm flex items-start gap-2">
+<span class="material-symbols-outlined text-body-md shrink-0 mt-0.5">report</span>
+<div>
+<strong class="font-semibold block text-on-surface">سبب الرفض الموجه للطالب:</strong>
+              تم إرفاق صورة غير واضحة للبطاقة الجامعية، يرجى إعادة رفع مستند رسمي حديث ومطابقة الاسم الرباعي.
+            </div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-sm text-label-sm text-outline">ينتهي الحفظ: خلال 6 أيام</span>
+<button class="px-space-md py-1.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-1 transition-all" onclick="restoreAndApprove('حساب نايف بندر السديري', 'نايف بندر السديري')" type="button">
+<span class="material-symbols-outlined text-body-md">restore</span>
+<span>إستعادة وموافقة</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Module 5: Content & Schedule Management Section -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-secondary-container text-on-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-body-lg">auto_stories</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">إدارة المحتوى الأكاديمي والجدول الزمني</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">التحكم الميداني بالمحاضرات الرقمية وأدوات التمديد الفوري للاختبارات النشطة</p>
+</div>
+</div>
+<!-- 3 Sub-Panels in a Responsive Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
+<!-- Sub-panel 1: Lecture Manager (Col span 2) -->
+<div class="lg:col-span-2 bg-surface-container-low/50 rounded-xl p-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">video_library</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">مدير المحاضرات والمواد الرقمية</h3>
+</div>
+<button class="px-space-md py-1.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md flex items-center gap-1 hover:bg-primary-container transition-all" onclick="addNewLecturePrompt()" type="button">
+<span class="material-symbols-outlined text-body-md">add</span>
+<span>إضافة محاضرة جديدة</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-xs">
+<!-- Lecture Item 1 -->
+<div class="bg-surface-container-lowest rounded-lg p-space-sm shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">play_circle</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">المحاضرة 08: التحليل الرياضي للخوارزميات المتكررة</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-space-xs">
+<span>المدة: 54 دقيقة</span> • 
+                  <span>عدد الصفحات: 28 صفحة PDF</span> • 
+                  <span class="text-[#059669]">فيديو مسجل عالي الدقة</span>
+</span>
+</div>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<a class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" href="#" title="معاينة الرابط والموارد">
+<span class="material-symbols-outlined text-body-lg">link</span>
+</a>
+<a class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" href="#" title="تحميل المرفقات">
+<span class="material-symbols-outlined text-body-lg">attachment</span>
+</a>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="تعديل المحتوى" type="button">
+<span class="material-symbols-outlined text-body-lg">edit</span>
+</button>
+</div>
+</div>
+<!-- Lecture Item 2 -->
+<div class="bg-surface-container-lowest rounded-lg p-space-sm shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-secondary-container text-on-secondary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">play_circle</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">المحاضرة 09: هياكل الأشجار الثنائية المتوازنة (AVL Trees)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-space-xs">
+<span>المدة: 68 دقيقة</span> • 
+                  <span>عدد الصفحات: 34 صفحة + أكواد مصاحبة</span>
+</span>
+</div>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<a class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" href="#" title="معاينة الرابط">
+<span class="material-symbols-outlined text-body-lg">link</span>
+</a>
+<a class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" href="#" title="تحميل المرفقات">
+<span class="material-symbols-outlined text-body-lg">attachment</span>
+</a>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="تعديل المحتوى" type="button">
+<span class="material-symbols-outlined text-body-lg">edit</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sub-panel 2: Exam Extension Tool (Col span 1) -->
+<div class="bg-surface-container-low/50 rounded-xl p-space-md flex flex-col justify-between gap-space-md" id="exam-extension-tool">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error">more_time</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">أداة تمديد وقت الاختبارات</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">بث تمديد زمني طارئ للاختبارات الحية النشطة</p>
+<div class="flex flex-col gap-space-sm mt-space-xs">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface font-semibold block mb-1">حدد الاختبار النشط</label>
+<select class="w-full px-space-sm py-2 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" id="extendExamSelect">
+<option value="math1">اختبار تفاضل وتكامل 1 (MATH-101) - ينتهي 11:30 ص</option>
+<option value="cs204">خوارزميات وهياكل بيانات (CS-204) - ينتهي 12:00 م</option>
+</select>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface font-semibold block mb-1">المدة الإضافية</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="extend-min-btn py-1.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-sm text-label-sm text-center hover:bg-primary-fixed focus:bg-primary focus:text-on-primary font-bold transition-all" onclick="selectExtendMinutes(15)" type="button">
+                  +15 دقيقة
+                </button>
+<button class="extend-min-btn py-1.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-sm text-label-sm text-center hover:bg-primary-fixed focus:bg-primary focus:text-on-primary font-bold transition-all" onclick="selectExtendMinutes(30)" type="button">
+                  +30 دقيقة
+                </button>
+<button class="extend-min-btn py-1.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-sm text-label-sm text-center hover:bg-primary-fixed focus:bg-primary focus:text-on-primary font-bold transition-all" onclick="selectExtendMinutes(60)" type="button">
+                  +60 دقيقة
+                </button>
+</div>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface font-semibold block mb-1">السبب التوجيهي للتمديد</label>
+<input class="w-full px-space-sm py-2 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" id="extendReason" placeholder="مثال: عطل مؤقت في سيرفر الاختبارات" type="text"/>
+</div>
+</div>
+</div>
+<button class="w-full py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center gap-1.5 shadow-sm transition-all" onclick="broadcastExamExtension()" type="button">
+<span class="material-symbols-outlined text-body-md">broadcast_on_personal</span>
+<span>بث التمديد فوراً لجميع الطلاب</span>
+</button>
+</div>
+</div>
+<!-- Sub-panel 3: Calendar & Academic Notifications Bar -->
+<div class="bg-surface-container-low/40 rounded-xl p-space-md flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed text-on-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">edit_calendar</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">مزامنة التقويم الأكاديمي والإشعارات التلقائية</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">إرسال تنبيهات تلقائية للطلاب عبر الواتساب والبريد قبل بدء الفعاليات بـ 3 ساعات</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<label class="inline-flex items-center gap-2 cursor-pointer">
+<input checked="" class="w-4 h-4 text-primary rounded bg-surface-container-lowest focus:ring-primary" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface">تفعيل البث الآلي</span>
+</label>
+<button class="px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all" type="button">
+          تعديل المواعيد
+        </button>
+</div>
+</div>
+</section>
+<!-- Module 6: Emergency Password Reset Interface -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md">
+<div class="flex items-start md:items-center justify-between flex-col md:flex-row gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-body-lg">lock_reset</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">إعادة تعيين كلمة المرور للطوارئ والتحقق الأمني</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">توليد روابط استعادة مؤقتة ومسجلة في سجل التدقيق الأمني (Audit Log)</p>
+</div>
+</div>
+<span class="px-space-sm py-1 rounded-md bg-secondary-container text-on-secondary-container font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm">gavel</span>
+        عملية خاضعة للرقابة والمساءلة
+      </span>
+</div>
+<!-- Look-up & Verification Area -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-center">
+<!-- Input Search Form (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col sm:flex-row items-center gap-space-xs">
+<div class="relative flex-1 w-full">
+<span class="material-symbols-outlined absolute right-space-sm top-3 text-outline pointer-events-none text-body-md">badge</span>
+<input class="w-full pr-9 pl-space-md py-2.5 rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" id="studentLookupId" placeholder="أدخل الرقم الجامعي للطالب (مثال: 44109821) أو البريد..." type="text"/>
+</div>
+<button class="w-full sm:w-auto px-space-lg py-2.5 rounded-lg bg-secondary hover:bg-secondary/90 text-on-secondary font-label-md text-label-md shrink-0 flex items-center justify-center gap-1.5 transition-all" onclick="searchStudentSecurity()" type="button">
+<span class="material-symbols-outlined text-body-md">manage_search</span>
+<span>فحص الهوية والسجل</span>
+</button>
+</div>
+<!-- Quick Stats / Notice (5 Cols) -->
+<div class="lg:col-span-5 bg-surface-container-low rounded-lg p-space-sm flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-headline-sm shrink-0">verified</span>
+<span>الروابط الصادرة تكون صالحة لمدة <strong>15 دقيقة فقط</strong> وتنتهي آلياً فور أول استخدام أو عند انتهاء المهلة.</span>
+</div>
+</div>
+<!-- Student Security Profile Result Card (Dynamically displayed or populated) -->
+<div class="bg-surface-container-low/60 rounded-xl p-space-md flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md" id="studentSecurityProfileCard">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold text-headline-sm shrink-0">
+          مس
+        </div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">محمد سعد الغامدي</span>
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">طالب منتظم - المستوى 6</span>
+<span class="px-2 py-0.5 rounded-full bg-[#ECFDF5] text-[#065F46] font-label-sm text-label-sm">حساب غير مقيد</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span>الرقم الجامعي: <strong>44201943</strong></span>
+<span>البريد: <strong>m.alghamdi@stu.edu.sa</strong></span>
+<span>آخر تسجيل دخول ناجح: اليوم 08:14 ص</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full lg:w-auto justify-end shrink-0">
+<button class="px-space-md py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-1.5 shadow-sm transition-all" onclick="generateTemporaryResetLink()" type="button">
+<span class="material-symbols-outlined text-body-md">vpn_key</span>
+<span>توليد رابط استعادة فوري مؤقت (15 دقيقة)</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Interactive Modal 1: Confirmation & Approval Dialog -->
+<div class="fixed inset-0 z-50 hidden bg-[#0F172A]/45 backdrop-blur-[4px] flex items-center justify-center p-space-md" id="approvalModalDialog">
+<div class="bg-surface-container-lowest rounded-xl max-w-lg w-full p-space-lg shadow-xl flex flex-col gap-space-md animate-in fade-in zoom-in-95">
+<!-- Modal Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined text-headline-sm">verified</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">تأكيد اعتماد الطلب الأكاديمي</h3>
+<span class="font-label-sm text-label-sm text-outline">سيتم تسجيل الاعتماد رسمياً وتفعيل الصلاحية للمستخدم</span>
+</div>
+</div>
+<button class="p-1 rounded-full text-on-surface-variant hover:bg-surface-container transition-colors" onclick="closeApprovalModal()" type="button">
+<span class="material-symbols-outlined text-headline-sm">close</span>
+</button>
+</div>
+<!-- Modal Body Summary -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">ملخص تفاصيل الطلب:</span>
+<div class="font-headline-sm text-headline-sm font-bold text-primary" id="modalTargetTitle">--</div>
+<div class="font-body-sm text-body-sm text-on-surface" id="modalTargetDetails">--</div>
+</div>
+<div class="flex items-center gap-2 p-space-sm rounded-lg bg-surface-container-low text-on-surface-variant font-body-sm text-body-sm">
+<input checked="" class="w-4 h-4 text-primary rounded bg-surface-container-lowest focus:ring-primary" id="auditConfirmCheck" type="checkbox"/>
+<label class="text-on-surface" for="auditConfirmCheck">لقد قمت بمراجعة كافة المستندات والتأكد من توافقها مع اللوائح.</label>
+</div>
+<!-- Modal Action Buttons -->
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all" onclick="closeApprovalModal()" type="button">
+          إلغاء وتراجع
+        </button>
+<button class="px-space-lg py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-1.5 shadow-sm transition-all" onclick="confirmApprovalAction()" type="button">
+<span class="material-symbols-outlined text-body-md">check</span>
+<span>تأكيد الاعتماد النهائي</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Interactive Modal 2: Rejection with Rich Feedback Note -->
+<div class="fixed inset-0 z-50 hidden bg-[#0F172A]/45 backdrop-blur-[4px] flex items-center justify-center p-space-md" id="rejectionModalDialog">
+<div class="bg-surface-container-lowest rounded-xl max-w-xl w-full p-space-lg shadow-xl flex flex-col gap-space-md animate-in fade-in zoom-in-95">
+<!-- Modal Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined text-headline-sm">cancel</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">تأكيد رفض الطلب مع إرسال إشعار للمنشئ</h3>
+<span class="font-label-sm text-label-sm text-outline">سيتم نقل الطلب تلقائياً لسجل المرفوضات المؤقت (7 أيام)</span>
+</div>
+</div>
+<button class="p-1 rounded-full text-on-surface-variant hover:bg-surface-container transition-colors" onclick="closeRejectModal()" type="button">
+<span class="material-symbols-outlined text-headline-sm">close</span>
+</button>
+</div>
+<!-- Quick Predefined Reasons Badges -->
+<div class="flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">أسباب رفض سريعة مسبقة التحديد (اضغط للإدراج):</span>
+<div class="flex flex-wrap gap-1.5">
+<button class="px-2.5 py-1 rounded-md bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" onclick="insertRejectReason('بيانات الطالب والبطاقة الجامعية غير واضحة ومخالفة للمتطلبات.')" type="button">
+            بيانات غير مكتملة
+          </button>
+<button class="px-2.5 py-1 rounded-md bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" onclick="insertRejectReason('تكرار موعد الاختبار أو الحدث مع جدول الفعاليات المعتمدة مسبقاً.')" type="button">
+            تعارض في الموعد والجدول
+          </button>
+<button class="px-2.5 py-1 rounded-md bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" onclick="insertRejectReason('الأسئلة المدخلة لا تغطي معايير الجودة ومخرجات التعلم للفصل المعتمد.')" type="button">
+            مخالفة معايير الجودة
+          </button>
+<button class="px-2.5 py-1 rounded-md bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" onclick="insertRejectReason('عدم توفر قاعة افتراضية متاحة في هذا التوقيت المحدد.')" type="button">
+            عدم توفر قاعة
+          </button>
+</div>
+</div>
+<!-- Detailed Rich Textarea for Student Notification -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold flex items-center justify-between">
+<span>سبب الرفض والملاحظات التوجيهية:</span>
+<span class="text-outline font-normal">تُرسل آلياً عبر البريد والواتساب للطالب</span>
+</label>
+<textarea class="w-full p-space-sm rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-error transition-all" id="rejectionReasonText" placeholder="اكتب الملاحظات التوضيحية للطالب لتمكينه من تعديل الطلب وإعادة إرساله بشكل صحيح..." rows="4"></textarea>
+</div>
+<!-- Modal Action Buttons -->
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all" onclick="closeRejectModal()" type="button">
+          إلغاء
+        </button>
+<button class="px-space-lg py-2 rounded-lg bg-error hover:bg-error-container hover:text-on-error-container text-on-error font-label-md text-label-md flex items-center gap-1.5 shadow-sm transition-all" onclick="confirmRejectionAction()" type="button">
+<span class="material-symbols-outlined text-body-md">send</span>
+<span>تأكيد الرفض والإرسال</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Toast / Notification Banner -->
+<div class="fixed bottom-6 left-6 z-50 hidden max-w-md bg-surface-container-lowest rounded-xl p-space-md shadow-xl flex items-center gap-space-sm border border-primary/20 animate-in slide-in-from-bottom-5" id="toastNotification">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center shrink-0" id="toastIconContainer">
+<span class="material-symbols-outlined text-body-md">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface" id="toastTitle">تم تنفيذ الإجراء بنجاح</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="toastMessage">تم تحديث السجلات الأكاديمية وإرسال الإشعارات.</span>
+</div>
+</div>
+</div>
+<!-- Client-side Interactive JavaScript Engine -->
+<script>
+  let currentTargetItem = null;
+
+  // Tab Switching Logic
+  function switchMainTab(targetTabId) {
+    // Hide all tabs
+    document.querySelectorAll('.tab-content').forEach(tab => {
+      tab.classList.add('hidden');
+      tab.classList.remove('flex');
+    });
+
+    // Reset buttons appearance
+    document.querySelectorAll('.tab-button').forEach(btn => {
+      btn.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm', 'font-bold');
+      btn.classList.add('text-on-surface-variant');
+    });
+
+    // Show target tab
+    const activeTab = document.getElementById(targetTabId);
+    if (activeTab) {
+      activeTab.classList.remove('hidden');
+      activeTab.classList.add('flex');
+    }
+
+    // Highlight button
+    const btnMap = {
+      'tab-accounts': 'tabBtn-accounts',
+      'tab-exams': 'tabBtn-exams',
+      'tab-events': 'tabBtn-events'
+    };
+    const activeBtn = document.getElementById(btnMap[targetTabId]);
+    if (activeBtn) {
+      activeBtn.classList.remove('text-on-surface-variant');
+      activeBtn.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm', 'font-bold');
+    }
+  }
+
+  // Queue Live Search Filter
+  function filterQueueCards() {
+    const query = document.getElementById('queueSearchInput').value.toLowerCase().trim();
+    const activeTabContent = document.querySelector('.tab-content:not(.hidden)');
+    if (!activeTabContent) return;
+
+    const items = activeTabContent.querySelectorAll('.queue-item');
+    items.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      if (text.includes(query)) {
+        item.style.display = 'flex';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  // Modals Controller: Approval
+  function openApprovalModal(type, title, details) {
+    document.getElementById('modalTargetTitle').textContent = title;
+    document.getElementById('modalTargetDetails').textContent = details + ' (' + type + ')';
+    document.getElementById('approvalModalDialog').classList.remove('hidden');
+  }
+
+  function closeApprovalModal() {
+    document.getElementById('approvalModalDialog').classList.add('hidden');
+  }
+
+  function confirmApprovalAction() {
+    closeApprovalModal();
+    showToast('تم اعتماد الطلب بنجاح', 'تم توثيق الموافقة وتفعيل الحساب / الحدث وإشعار المعنيين.', 'primary');
+  }
+
+  // Modals Controller: Rejection
+  function openRejectModal(type, name, refCode) {
+    document.getElementById('rejectionReasonText').value = '';
+    document.getElementById('rejectionModalDialog').classList.remove('hidden');
+  }
+
+  function closeRejectModal() {
+    document.getElementById('rejectionModalDialog').classList.add('hidden');
+  }
+
+  function insertRejectReason(text) {
+    const textarea = document.getElementById('rejectionReasonText');
+    if (textarea.value.trim() === '') {
+      textarea.value = text;
+    } else {
+      textarea.value = textarea.value + '\n- ' + text;
+    }
+  }
+
+  function confirmRejectionAction() {
+    const reason = document.getElementById('rejectionReasonText').value.trim();
+    if (!reason) {
+      alert('يرجى كتابة أو تحديد سبب الرفض التوجيهي للطالب قبل المتابعة.');
+      return;
+    }
+    closeRejectModal();
+    showToast('تم رفض الطلب وحفظه في السجل', 'تم إرسال رسالة التوجيه عبر الواتساب والبريد للطالب.', 'error');
+  }
+
+  // Restore & Approve from 7-Day Log
+  function restoreAndApprove(itemTitle, studentName) {
+    showToast('تمت استعادة الطلب واعتماده', 'تم استرجاع ' + itemTitle + ' لصالح ' + studentName + ' بنجاح.', 'primary');
+  }
+
+  // Exam Extension Tool
+  let selectedMinutes = 15;
+  function selectExtendMinutes(min) {
+    selectedMinutes = min;
+    const reasonInput = document.getElementById('extendReason');
+    if (!reasonInput.value) {
+      reasonInput.value = 'تمديد استثنائي لمدة ' + min + ' دقيقة لمعالجة حالات الاتصال.';
+    }
+  }
+
+  function broadcastExamExtension() {
+    const examSelect = document.getElementById('extendExamSelect');
+    const examName = examSelect.options[examSelect.selectedIndex].text;
+    showToast('تم بث تمديد الوقت بنجاح', 'تمت إضافة الوقت للاختبار: ' + examName, 'primary');
+  }
+
+  // Emergency Password Reset
+  function searchStudentSecurity() {
+    const id = document.getElementById('studentLookupId').value.trim();
+    if (!id) {
+      alert('يرجى إدخال الرقم الجامعي أو البريد للتحقق.');
+      return;
+    }
+    showToast('تم التحقق من سجل الطالب', 'الطالب مقيد ونشط بالسجلات الأكاديمية الرسمية.', 'primary');
+  }
+
+  function generateTemporaryResetLink() {
+    showToast('تم توليد رابط استعادة مؤقت', 'الرابط صالح لمدة 15 دقيقة فقط وتم تسجيل العملية برقم جلسة التدقيق #AUD-99182.', 'primary');
+  }
+
+  // New Lecture Prompt
+  function addNewLecturePrompt() {
+    const title = prompt('أدخل عنوان المحاضرة الأكاديمية الجديدة:');
+    if (title) {
+      showToast('تم إنشاء مسودة المحاضرة', 'تمت إضافة المحاضرة للمقرر بنجاح وجاري ربط المحتوى.', 'primary');
+    }
+  }
+
+  // Refresh Queue Stats
+  function refreshQueueStats() {
+    showToast('تم تحديث قائمة المراجعة', 'جميع الطلبات والمؤشرات متزامنة مع السيرفر الأكاديمي الآن.', 'primary');
+  }
+
+  // Universal Toast Notification
+  function showToast(title, message, type) {
+    const toast = document.getElementById('toastNotification');
+    const toastTitle = document.getElementById('toastTitle');
+    const toastMessage = document.getElementById('toastMessage');
+    const iconContainer = document.getElementById('toastIconContainer');
+
+    toastTitle.textContent = title;
+    toastMessage.textContent = message;
+
+    if (type === 'error') {
+      iconContainer.className = 'w-8 h-8 rounded-full bg-error-container text-on-error-container flex items-center justify-center shrink-0';
+      iconContainer.innerHTML = '<span class="material-symbols-outlined text-body-md">priority_high</span>';
+    } else {
+      iconContainer.className = 'w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center shrink-0';
+      iconContainer.innerHTML = '<span class="material-symbols-outlined text-body-md">check</span>';
+    }
+
+    toast.classList.remove('hidden');
+    setTimeout(() => {
+      toast.classList.add('hidden');
+    }, 4500);
+  }
+
+  /* فتح/إغلاق القائمة الجانبية للوحة المشرف على الجوال والتابلت */
+  function toggleAdminSidebar() {
+    var sidebar = document.getElementById('adminSidebar');
+    var overlay = document.getElementById('adminSidebarOverlay');
+    var btn = document.querySelector('.sidebar-toggle-btn');
+    var isOpen = sidebar.classList.toggle('is-open');
+    overlay.classList.toggle('is-open', isOpen);
+    if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+</script></main></div></body></html>

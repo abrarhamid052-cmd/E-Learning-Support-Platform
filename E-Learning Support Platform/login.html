@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link rel="stylesheet" href="styles.css"/><link rel="icon" href="logo.svg" type="image/svg+xml"/><script src="https://cdn.tailwindcss.com"></script><script src="tailwind.config.js"></script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between"><header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(30,58,138,0.05)]"><div class="h-16 max-w-[1360px] mx-auto px-margin flex items-center justify-between"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm" href="login.html"><div class="brand-logo w-9 h-9"><img alt="شعار منصة دعم التعليم الإلكتروني" src="logo.svg"/></div><div class="flex flex-col"><span class="brand-wordmark font-headline-sm text-headline-sm">منصة دعم التعليم الإلكتروني</span><span class="brand-tagline font-label-sm text-label-sm">إسناد لمسيرتك الأكاديمية</span></div></a></div><nav class="flex items-center gap-space-lg"><a aria-current="page" class="transition-colors text-primary font-title-md" href="#" onclick="switchAuthTab('login');return false;">تسجيل الدخول</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#" onclick="switchAuthTab('signup');return false;">إنشاء حساب جديد</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">مركز الدعم والمساعدة</a></nav><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"><span class="material-symbols-outlined text-[18px] text-secondary">language</span><span class="font-label-sm text-label-sm font-semibold">العربية (SA)</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 flex-1 flex flex-col justify-center bg-background"><div class="flex flex-col w-full relative overflow-hidden py-space-xl">
+<!-- Subtle Ambient Academic Background Glows -->
+<div class="absolute top-0 right-1/4 w-96 h-96 bg-secondary-fixed/40 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute -bottom-10 left-1/4 w-[28rem] h-[28rem] bg-surface-variant/60 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- Background Islamic Architectural Subtle Pattern (SVG Tile) -->
+<div class="absolute inset-0 opacity-[0.035] pointer-events-none -z-10 bg-repeat" style="background-image: url('data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;64&quot; height=&quot;64&quot; viewBox=&quot;0 0 64 64&quot;&gt;&lt;path d=&quot;M32 0 L64 32 L32 64 L0 32 Z M32 10 L54 32 L32 54 L10 32 Z&quot; fill=&quot;%2300236f&quot; stroke=&quot;none&quot;/&gt;&lt;/svg&gt;');"></div>
+<!-- Main Container -->
+<div class="max-w-[1180px] mx-auto px-margin-mobile md:px-margin w-full grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Right / Primary Side: Visual Context & Scholarly Accreditation (Hidden on small screens, desktop 5 cols) -->
+<div class="hidden lg:flex lg:col-span-5 flex-col justify-between space-y-space-xl text-on-surface">
+<div class="space-y-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span>بوابة الدخول الموحد للجامعات</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary leading-tight">
+          الارتقاء برحلتك <br/>
+<span class="text-secondary font-headline-lg">الأكاديمية الرقمية</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+          نظام متكامل للدعم الفني والخدمات التعليمية وربط الطلاب باللجان الأكاديمية تحت مظلة بيئة رقمية آمنة ومعتمدة.
+        </p>
+</div>
+<!-- Feature Visual Badges -->
+<div class="space-y-space-sm">
+<div class="flex items-center gap-space-md p-space-md rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[26px]">school</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface">اعتماد أهلي وحكومي موحد</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">ربط تلقائي بالمعرفات الجامعية الرسمية</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md p-space-md rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="w-12 h-12 rounded-lg bg-secondary-container/40 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[26px]">support_agent</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface">دعم أكاديمي على مدار الساعة</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">معالجة فورية للاستفسارات والالتماسات</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md p-space-md rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined text-[26px]">lock_clock</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface">أمان تام للبيانات الحساسة</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">تشفير خوارزمي متوافق مع معايير الأمن السيبراني</span>
+</div>
+</div>
+</div>
+<!-- Live Support Indicator -->
+<div class="flex items-center justify-between p-space-md rounded-xl bg-surface-container-low text-on-surface">
+<div class="flex items-center gap-space-sm">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
+</span>
+<span class="font-label-md text-label-md font-semibold">بوابة الخدمات النشطة: متصلة بالخوادم المركزية</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">v4.8.2</span>
+</div>
+</div>
+<!-- Center/Left Side: Interactive Multi-Tab Authentication Portal Card (7 cols on lg) -->
+<div class="lg:col-span-7 w-full max-w-xl mx-auto">
+<div class="bg-surface-container-lowest/95 backdrop-blur-md rounded-xl shadow-xl p-space-md md:p-space-xl relative">
+<!-- Brand Header with Provided Logo -->
+<div class="flex flex-col items-center text-center mb-space-lg">
+<div class="w-20 h-20 mb-space-sm p-1.5 rounded-xl bg-surface-container-lowest shadow-md flex items-center justify-center overflow-hidden">
+<img alt="شعار منصة دعم التعليم الإلكتروني" class="w-full h-full object-contain" src="logo.svg"/>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary tracking-tight">منصة دعم التعليم الإلكتروني</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">بوابتك الموحدة للخدمات الأكاديمية والاستفسارات التعليمية</p>
+</div>
+<!-- 3-Tab Interactive Switcher -->
+<div class="grid grid-cols-3 p-1 bg-surface-container rounded-lg mb-space-lg" role="tablist">
+<button aria-selected="true" class="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-lg font-title-md text-body-sm transition-all duration-200 bg-surface-container-lowest text-primary shadow-sm" id="tab-login-btn" onclick="switchAuthTab('login')" role="tab">
+<span class="material-symbols-outlined text-[18px]">login</span>
+<span>تسجيل الدخول</span>
+</button>
+<button aria-selected="false" class="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-lg font-title-md text-body-sm transition-all duration-200 text-on-surface-variant hover:text-on-surface" id="tab-signup-btn" onclick="switchAuthTab('signup')" role="tab">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+<span>حساب جديد</span>
+</button>
+<button aria-selected="false" class="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-lg font-title-md text-body-sm transition-all duration-200 text-on-surface-variant hover:text-on-surface" id="tab-reset-btn" onclick="switchAuthTab('reset')" role="tab">
+<span class="material-symbols-outlined text-[18px]">lock_reset</span>
+<span>استعادة الرمز</span>
+</button>
+</div>
+<!-- ============================================== -->
+<!-- TAB 1: LOGIN PANEL                             -->
+<!-- ============================================== -->
+<div class="flex flex-col space-y-space-md" id="panel-login">
+<form class="space-y-space-md" onsubmit="event.preventDefault();window.location.href='home.html';">
+<!-- Field: Username / Email -->
+<div class="space-y-1">
+<label class="block font-title-md text-body-sm text-on-surface" for="login-identifier">
+                البريد الإلكتروني أو اسم المستخدم
+              </label>
+<div class="relative flex items-center">
+<input class="w-full pr-10 pl-4 py-3 bg-surface-container-low text-on-surface rounded-lg font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-secondary transition-all" dir="rtl" id="login-identifier" placeholder="مثال: student@university.edu.sa أو user123" type="text"/>
+<span class="material-symbols-outlined absolute right-3 text-outline text-[20px] pointer-events-none">alternate_email</span>
+</div>
+<p class="font-body-sm text-label-sm text-outline-variant pr-1">استخدم المعرّف الجامعي المسجل أو البريد الإلكتروني الرسمي المعتمد.</p>
+</div>
+<!-- Field: Password -->
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<label class="block font-title-md text-body-sm text-on-surface" for="login-password">
+                  كلمة المرور
+                </label>
+<button class="font-label-sm text-label-sm text-secondary hover:underline" onclick="switchAuthTab('reset')" type="button">
+                  نسيت كلمة المرور؟
+                </button>
+</div>
+<div class="relative flex items-center">
+<input class="w-full pr-10 pl-11 py-3 bg-surface-container-low text-on-surface rounded-lg font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-secondary transition-all" id="login-password" placeholder="••••••••" type="password"/>
+<span class="material-symbols-outlined absolute right-3 text-outline text-[20px] pointer-events-none">lock</span>
+<button class="absolute left-3 text-outline hover:text-on-surface focus:outline-none p-1" onclick="togglePasswordVisibility('login-password', 'login-eye-icon')" type="button">
+<span class="material-symbols-outlined text-[20px]" id="login-eye-icon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me & Policy -->
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center gap-2 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded text-secondary focus:ring-secondary focus:ring-offset-0 bg-surface-container cursor-pointer" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">تذكر هذا الجهاز لمدة 30 يوماً</span>
+</label>
+<div class="flex items-center gap-1 text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">encrypted</span>
+<span>اتصال مشفر</span>
+</div>
+</div>
+<!-- Primary Submit Button -->
+<button class="w-full py-3.5 px-4 bg-primary text-on-primary rounded-lg font-title-md text-title-md flex items-center justify-center gap-2 shadow-md hover:bg-primary-container active:scale-[0.99] transition-all duration-150" type="submit">
+<span class="material-symbols-outlined text-[20px]">login</span>
+<span>تسجيل الدخول</span>
+</button>
+</form>
+<!-- Single Sign-On (SSO) Academic Option -->
+<div class="pt-space-xs space-y-space-sm">
+<div class="flex items-center gap-3">
+<div class="flex-1 h-px bg-surface-container-high"></div>
+<span class="font-label-sm text-label-sm text-outline">أو عبر النفاذ الموحد</span>
+<div class="flex-1 h-px bg-surface-container-high"></div>
+</div>
+<button class="w-full py-2.5 px-4 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center gap-space-sm transition-colors" type="button">
+<div class="w-6 h-6 rounded bg-secondary text-on-secondary flex items-center justify-center font-headline-sm text-[12px]">ن</div>
+<span class="font-title-md text-body-sm">الدخول عبر النفاذ الوطني الموحد (نفاذ)</span>
+</button>
+<div class="flex items-center justify-center gap-space-xs text-outline font-body-sm text-label-sm pt-1">
+<span>تواجه صعوبة في الدخول؟</span>
+<a class="text-primary font-semibold hover:underline" href="#" onclick="switchAuthTab('signup')">أنشئ حساباً جديداً للطلاب</a>
+</div>
+</div>
+</div>
+<!-- ============================================== -->
+<!-- TAB 2: SIGN UP PANEL                            -->
+<!-- ============================================== -->
+<div class="hidden flex-col space-y-space-md" id="panel-signup">
+<form class="space-y-space-md" onsubmit="event.preventDefault();">
+<!-- Field 1: Real Name with Strict Academic Warning -->
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<label class="block font-title-md text-body-sm text-on-surface" for="signup-fullname">
+                  الإسم الحقيقي (رباعي أو ثلاثي)
+                </label>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-[11px] font-semibold">إلزامي للمطابقة</span>
+</div>
+<div class="relative flex items-center">
+<input class="w-full pr-10 pl-4 py-2.5 bg-surface-container-low text-on-surface rounded-lg font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-secondary transition-all" id="signup-fullname" placeholder="مثال: عبدالله محمد بن راشد القحطاني" type="text"/>
+<span class="material-symbols-outlined absolute right-3 text-outline text-[20px] pointer-events-none">badge</span>
+</div>
+<p class="font-body-sm text-label-sm text-error flex items-center gap-1 pr-1">
+<span class="material-symbols-outlined text-[15px]">info</span>
+<span>تنبيه هام: الألقاب والأسماء المستعارة غير مقبولة نهائياً وسيتم رفض الحساب تلقائياً.</span>
+</p>
+</div>
+<!-- Field 2: WhatsApp Number with Saudi Country Code -->
+<div class="space-y-1">
+<label class="block font-title-md text-body-sm text-on-surface" for="signup-whatsapp">
+                رقم الواتساب
+              </label>
+<div class="flex items-center gap-2" dir="ltr">
+<div class="flex items-center gap-1.5 px-3 py-2.5 bg-surface-container rounded-lg text-on-surface select-none font-title-md text-body-sm min-w-[95px] justify-center">
+<span>🇸🇦</span>
+<span>+966</span>
+</div>
+<div class="relative flex-1 flex items-center" dir="rtl">
+<input class="w-full pr-10 pl-4 py-2.5 bg-surface-container-low text-on-surface rounded-lg font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-secondary transition-all tracking-wider text-left" dir="ltr" id="signup-whatsapp" placeholder="5XXXXXXXX" type="tel"/>
+<span class="material-symbols-outlined absolute right-3 text-outline text-[20px] pointer-events-none">chat</span>
+</div>
+</div>
+<p class="font-body-sm text-label-sm text-outline pr-1">يُستخدم لتفعيل استلام كود التحقق ورسائل الدعم الطارئ.</p>
+</div>
+<!-- Field 3: Active Email -->
+<div class="space-y-1">
+<label class="block font-title-md text-body-sm text-on-surface" for="signup-email">
+                البريد الإلكتروني
+              </label>
+<div class="relative flex items-center">
+<input class="w-full pr-10 pl-4 py-2.5 bg-surface-container-low text-on-surface rounded-lg font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-secondary transition-all" id="signup-email" placeholder="academic.user@example.com" type="email"/>
+<span class="material-symbols-outlined absolute right-3 text-outline text-[20px] pointer-events-none">mail</span>
+</div>
+<p class="font-body-sm text-label-sm text-outline pr-1">يجب أن يكون بريداً نشطاً ومفعلاً لتلقي تنبيهات القبول ومتابعة الطلبات الأكاديمية.</p>
+</div>
+<!-- Field 4: Unique Username with Availability Hint -->
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<label class="block font-title-md text-body-sm text-on-surface" for="signup-username">
+                  اسم المستخدم الفريد
+                </label>
+<div class="flex items-center gap-1 text-secondary font-label-sm text-[12px]">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>يقبل الأحرف اللاتينية والأرقام</span>
+</div>
+</div>
+<div class="relative flex items-center">
+<input class="w-full pr-10 pl-4 py-2.5 bg-surface-container-low text-on-surface rounded-lg font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-secondary transition-all" id="signup-username" placeholder="saud_student24" type="text"/>
+<span class="material-symbols-outlined absolute right-3 text-outline text-[20px] pointer-events-none">person</span>
+</div>
+</div>
+<!-- Field 5: Password with Dynamic Rules Box -->
+<div class="space-y-1">
+<label class="block font-title-md text-body-sm text-on-surface" for="signup-password">
+                كلمة المرور
+              </label>
+<div class="relative flex items-center">
+<input class="w-full pr-10 pl-11 py-2.5 bg-surface-container-low text-on-surface rounded-lg font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-secondary transition-all" id="signup-password" placeholder="••••••••" type="password"/>
+<span class="material-symbols-outlined absolute right-3 text-outline text-[20px] pointer-events-none">key</span>
+<button class="absolute left-3 text-outline hover:text-on-surface focus:outline-none p-1" onclick="togglePasswordVisibility('signup-password', 'signup-eye-icon')" type="button">
+<span class="material-symbols-outlined text-[20px]" id="signup-eye-icon">visibility</span>
+</button>
+</div>
+<!-- Detailed Validation Helper Box -->
+<div class="mt-2 p-space-sm rounded-lg bg-surface-container-low text-on-surface-variant text-label-sm space-y-1.5">
+<div class="flex items-center gap-1.5 font-semibold text-primary">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>معايير كلمة المرور الآمنة:</span>
+</div>
+<p class="font-body-sm text-[12px] leading-relaxed text-outline">
+                  يجب أن تحتوي على أكثر من 8 خانات وتكون خليطاً من الحروف الكبيرة والصغيرة والأرقام والرموز (!@#$%^&amp;*).
+                </p>
+<div class="grid grid-cols-2 gap-1 pt-1 text-[11px]">
+<span class="flex items-center gap-1 text-secondary"><span class="material-symbols-outlined text-[14px]">check</span>أكثر من 8 رموز</span>
+<span class="flex items-center gap-1 text-secondary"><span class="material-symbols-outlined text-[14px]">check</span>حروف كبيرة وصغيرة (A-z)</span>
+<span class="flex items-center gap-1 text-secondary"><span class="material-symbols-outlined text-[14px]">check</span>أرقام حسابية (0-9)</span>
+<span class="flex items-center gap-1 text-secondary"><span class="material-symbols-outlined text-[14px]">check</span>رموز خاصة (#$%)</span>
+</div>
+</div>
+</div>
+<!-- Mandatory Supervisor Review Academic Notice Box -->
+<div class="p-space-md rounded-xl bg-amber-50 text-amber-950 flex items-start gap-space-sm shadow-sm">
+<span class="material-symbols-outlined text-amber-700 text-[22px] shrink-0 mt-0.5">warning</span>
+<div class="space-y-0.5">
+<span class="font-title-md text-label-md text-amber-900 block font-bold">ملاحظة هامة للمتقدمين:</span>
+<p class="font-body-sm text-body-sm text-amber-900 leading-snug">
+                  لا يكتمل إنشاء الحساب إلا بعد مراجعة المشرف والتحقق من البيانات الأكاديمية وصحة الاسم الرباعي المرفق.
+                </p>
+</div>
+</div>
+<!-- Submit CTA -->
+<button class="w-full py-3.5 px-4 bg-secondary text-on-secondary rounded-lg font-title-md text-title-md flex items-center justify-center gap-2 shadow-md hover:bg-on-secondary-container active:scale-[0.99] transition-all duration-150" type="submit">
+<span class="material-symbols-outlined text-[20px]">send</span>
+<span>إرسال طلب إنشاء الحساب</span>
+</button>
+</form>
+<div class="text-center pt-1">
+<span class="font-body-sm text-label-sm text-outline">لديك حساب مفعل بالفعل؟</span>
+<button class="text-primary font-semibold font-label-sm text-label-sm mr-1 hover:underline" onclick="switchAuthTab('login')" type="button">
+              سجّل دخولك الآن
+            </button>
+</div>
+</div>
+<!-- ============================================== -->
+<!-- TAB 3: RESET PASSWORD PANEL                     -->
+<!-- ============================================== -->
+<div class="hidden flex-col space-y-space-lg" id="panel-reset">
+<!-- Instructional Text Box -->
+<div class="p-space-md rounded-xl bg-surface-container flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[24px] shrink-0 mt-0.5">mark_email_read</span>
+<div class="space-y-1">
+<span class="font-title-md text-title-md text-on-surface block">استعادة الوصول الأكاديمي</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                أدخل بريدك الإلكتروني المسجل في النظام، وسنرسل لك رابطاً آمناً لإعادة تعيين كلمة المرور خلال دقائق بعد التحقق من السجلات.
+              </p>
+</div>
+</div>
+<form class="space-y-space-md" onsubmit="event.preventDefault();">
+<!-- Field: Registered Email -->
+<div class="space-y-1">
+<label class="block font-title-md text-body-sm text-on-surface" for="reset-email">
+                البريد الإلكتروني المسجل
+              </label>
+<div class="relative flex items-center">
+<input class="w-full pr-10 pl-4 py-3 bg-surface-container-low text-on-surface rounded-lg font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-secondary transition-all" id="reset-email" placeholder="student@university.edu.sa" type="email"/>
+<span class="material-symbols-outlined absolute right-3 text-outline text-[20px] pointer-events-none">alternate_email</span>
+</div>
+<p class="font-body-sm text-label-sm text-outline pr-1">تأكد من كتابة البريد الأساسي المرتبط بملفك الدراسي.</p>
+</div>
+<!-- Submit CTA -->
+<button class="w-full py-3.5 px-4 bg-primary text-on-primary rounded-lg font-title-md text-title-md flex items-center justify-center gap-2 shadow-md hover:bg-primary-container active:scale-[0.99] transition-all duration-150" type="submit">
+<span class="material-symbols-outlined text-[20px]">forward_to_inbox</span>
+<span>إرسال رابط إعادة التعيين</span>
+</button>
+</form>
+<!-- Back to login (RTL Arrow points right) -->
+<div class="flex items-center justify-center pt-2">
+<button class="inline-flex items-center gap-2 font-title-md text-body-sm text-secondary hover:text-on-secondary-container transition-colors" onclick="switchAuthTab('login')" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+<span>العودة إلى تسجيل الدخول</span>
+</button>
+</div>
+<!-- Direct Help Box -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest text-center space-y-1 shadow-sm">
+<span class="font-body-sm text-label-sm text-outline">لم يعد بإمكانك الوصول لبريدك الإلكتروني؟</span>
+<div class="block font-label-md text-label-md text-primary font-semibold cursor-pointer hover:underline">
+              تقديم تذكرة استعادة هوية للمشرف الأكاديمي
+            </div>
+</div>
+</div>
+</div>
+<!-- Trust Footer Guarantee Under Card -->
+<div class="mt-space-md flex items-center justify-center gap-space-md text-outline font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">verified</span>منظومة موثقة ومحمية</span>
+<span>•</span>
+<span>سريّة بيانات الطلاب مصانة</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">gavel</span>اللوائح الأكاديمية</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Interactive Tabs & Micro-Interactions Script -->
+<script>
+  function switchAuthTab(targetTab) {
+    const tabs = ['login', 'signup', 'reset'];
+    
+    tabs.forEach(tab => {
+      const panel = document.getElementById('panel-' + tab);
+      const btn = document.getElementById('tab-' + tab + '-btn');
+      
+      if (tab === targetTab) {
+        // Show panel
+        panel.classList.remove('hidden');
+        panel.classList.add('flex');
+        
+        // Active Button styling
+        btn.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+        btn.classList.remove('text-on-surface-variant');
+        btn.setAttribute('aria-selected', 'true');
+      } else {
+        // Hide panel
+        panel.classList.add('hidden');
+        panel.classList.remove('flex');
+        
+        // Inactive Button styling
+        btn.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+        btn.classList.add('text-on-surface-variant');
+        btn.setAttribute('aria-selected', 'false');
+      }
+    });
+  }
+
+  function togglePasswordVisibility(inputId, iconId) {
+    const input = document.getElementById(inputId);
+    const icon = document.getElementById(iconId);
+    
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.textContent = 'visibility_off';
+    } else {
+      input.type = 'password';
+      icon.textContent = 'visibility';
+    }
+  }
+</script></main><footer class="w-full bg-surface-container-lowest shadow-[0_-1px_6px_rgba(15,23,42,0.03)] py-space-lg"><div class="max-w-[1360px] mx-auto px-margin flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-secondary text-[20px]">verified</span><span class="font-body-sm text-body-sm text-on-surface-variant">منظومة تعليمية مرخصة ومعتمدة من هيئة تقويم التعليم والتدريب</span></div><nav class="flex items-center gap-space-lg" data-active-classes="text-primary font-title-md"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="terms-of-service" href="#">شروط الخدمة والاستخدام</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="privacy-policy" href="#">سياسة الخصوصية وحماية البيانات</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="academic-regulations" href="#">اللوائح التنظيمية للأكاديمية</a></nav><div class="font-label-sm text-label-sm text-outline">جميع الحقوق محفوظة © 2025 لمنصة دعم التعليم الإلكتروني</div></div></footer></body></html>

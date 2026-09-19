@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link rel="stylesheet" href="styles.css"/><link rel="icon" href="logo.svg" type="image/svg+xml"/><script src="https://cdn.tailwindcss.com"></script><script src="tailwind.config.js"></script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(30,58,138,0.08)]"><div class="h-16 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm" href="home.html"><div class="brand-logo w-10 h-10"><img alt="شعار منصة دعم التعليم الإلكتروني" src="logo.svg"/></div><div class="hidden sm:flex flex-col leading-tight"><span class="brand-wordmark font-headline-sm text-headline-sm">منصة دعم التعليم الإلكتروني</span><span class="brand-tagline font-label-sm text-label-sm">إسناد لمسيرتك الأكاديمية</span></div></a><nav class="hidden lg:flex items-center gap-space-xs"><a class="site-nav-link" href="home.html">الرئيسية</a><a class="site-nav-link" href="subject.html">المواد الدراسية</a><a aria-current="page" class="site-nav-link is-active" href="calendar.html">التقويم</a><a class="site-nav-link" href="exams.html">الإمتحانات</a><a class="site-nav-link" href="profile.html">الملف الشخصي</a></nav></div><div class="flex-1 max-w-md hidden md:block mx-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute right-space-sm text-outline text-[20px] pointer-events-none">search</span><input class="w-full h-10 pr-10 pl-space-md bg-surface-container-low text-on-surface placeholder:text-outline rounded-lg text-body-sm font-body-sm focus:outline-none focus:ring-2 focus:ring-secondary/30 transition-all" placeholder="بحث في الأحداث والتنبيهات..." type="text"/></div></div><div class="flex items-center gap-space-sm"><button aria-label="الإشعارات" class="relative w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 left-1.5 w-4 h-4 rounded-full bg-error text-on-error font-label-sm text-label-sm flex items-center justify-center leading-none">3</span></button><div class="flex items-center gap-space-sm pl-space-xs pr-space-sm py-1 rounded-xl hover:bg-surface-container-high transition-colors cursor-pointer" onclick="window.location.href='profile.html'"><div class="text-right hidden sm:block"><div class="font-label-lg text-label-lg text-on-surface font-semibold leading-tight">أحمد الشمري</div><div class="font-label-sm text-label-sm text-on-surface-variant leading-tight">طالب - هندسة حاسوب</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div>
+<nav class="lg:hidden flex items-center gap-space-xs overflow-x-auto px-gutter pb-space-sm bg-surface-container-lowest"><a class="site-nav-link" href="home.html">الرئيسية</a><a class="site-nav-link" href="subject.html">المواد الدراسية</a><a aria-current="page" class="site-nav-link is-active" href="calendar.html">التقويم</a><a class="site-nav-link" href="exams.html">الإمتحانات</a><a class="site-nav-link" href="profile.html">الملف الشخصي</a></nav>
+</header><main class="w-full pt-28 lg:pt-16 bg-surface flex-1"><div class="flex flex-col w-full px-margin-mobile lg:px-margin-desktop py-space-md max-w-7xl mx-auto space-y-space-lg">
+<!-- Top Hero Header Section -->
+<section class="flex flex-col gap-space-md">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col space-y-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">تقويم الأحداث والتنبيهات</h1>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-secondary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            الفصل الدراسي الأول 1446هـ / 2024م
+          </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+          تتبع مواعيد الاختبارات، تسليم الواجبات، ورش العمل والجلسات الحوارية المنظمة من الجامعة والطلاب مع مزامنة فورية للتنبيهات الأكاديمية.
+        </p>
+</div>
+<!-- Action Button -->
+<button class="self-start lg:self-center inline-flex items-center gap-space-xs px-space-lg py-3 rounded-full bg-primary text-on-primary font-label-lg text-label-lg shadow-sm hover:bg-primary-container transition-all hover:scale-[1.02] active:scale-[0.98]" id="openModalBtn" type="button">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>إضافة حدث جديد</span>
+</button>
+</div>
+<!-- Search & Filter Ribbon -->
+<div class="flex flex-col xl:flex-row items-stretch xl:items-center justify-between gap-space-sm bg-surface-container-lowest p-space-sm rounded-lg shadow-sm">
+<div class="relative flex-1 min-w-[280px]">
+<span class="material-symbols-outlined absolute start-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full pe-space-md ps-10 py-2.5 rounded-full bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm outline-none transition-all" placeholder="البحث عن الأحداث بالعنوان، المادة أو الكلمة المفتاحية..." type="text"/>
+</div>
+<!-- Filter Pills -->
+<div class="flex items-center gap-1.5 overflow-x-auto py-1 scrollbar-none">
+<button class="filter-pill active px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm shadow-sm whitespace-nowrap transition-all" type="button">
+          الكل (24)
+        </button>
+<button class="filter-pill px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-label-sm text-label-sm inline-flex items-center gap-1.5 whitespace-nowrap transition-all" type="button">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+          رسمي - الجامعة (14)
+        </button>
+<button class="filter-pill px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-label-sm text-label-sm inline-flex items-center gap-1.5 whitespace-nowrap transition-all" type="button">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+          غير رسمي - الطلاب (10)
+        </button>
+<button class="filter-pill px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-label-sm text-label-sm whitespace-nowrap transition-all" type="button">
+          امتحانات وتسليمات
+        </button>
+<button class="filter-pill px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-label-sm text-label-sm whitespace-nowrap transition-all" type="button">
+          ورش عمل ونقاشات
+        </button>
+</div>
+</div>
+</section>
+<!-- Split Main Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- Right Column: Interactive Calendar Grid (~60-65% -> 7 Cols on XL) -->
+<div class="xl:col-span-7 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-lg p-space-md lg:p-space-lg shadow-sm flex flex-col space-y-space-md">
+<!-- Calendar Controls & Navigation -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-sm border-b border-surface-container-high">
+<!-- Month Picker -->
+<div class="flex items-center gap-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">أكتوبر 2024</h2>
+<span class="font-label-sm text-label-sm text-outline px-2 py-0.5 rounded-full bg-surface-container">ربيع الآخر 1446هـ</span>
+<div class="flex items-center gap-1 ms-2">
+<button aria-label="الشهر السابق" class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button aria-label="الشهر القادم" class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+</div>
+<button class="px-3 py-1 rounded-full text-primary hover:bg-primary/10 font-label-sm text-label-sm font-bold transition-colors ms-1" type="button">
+              اليوم
+            </button>
+</div>
+<!-- View Switcher -->
+<div class="flex items-center p-1 rounded-full bg-surface-container-low">
+<button class="px-3 py-1 rounded-full bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-sm transition-all" type="button">شهري</button>
+<button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all" type="button">أسبوعي</button>
+<button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all" type="button">قائمة</button>
+</div>
+</div>
+<!-- Legend Ribbon -->
+<div class="flex flex-wrap items-center justify-between text-label-sm font-label-sm text-on-surface-variant px-1">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span>رسمي (معتمد من الكلية)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span>غير رسمي (مبادرات طلابية)</span>
+</div>
+</div>
+<span class="text-outline text-[11px] hidden sm:inline">توقيت مكة المكرمة (+3 GMT)</span>
+</div>
+<!-- Calendar Days Header -->
+<div class="grid grid-cols-7 gap-1 text-center font-label-sm text-label-sm text-on-surface-variant py-2 bg-surface-container-low rounded-lg">
+<div>الأحد</div>
+<div>الإثنين</div>
+<div>الثلاثاء</div>
+<div>الأربعاء</div>
+<div>الخميس</div>
+<div class="text-outline">الجمعة</div>
+<div class="text-outline">السبت</div>
+</div>
+<!-- Calendar Grid (Days 1 to 31 + Offsets) -->
+<div class="grid grid-cols-7 gap-1.5">
+<!-- Offset Days from prev month -->
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-low/40 opacity-40 text-start">
+<span class="font-label-sm text-label-sm text-outline">29</span>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-low/40 opacity-40 text-start">
+<span class="font-label-sm text-label-sm text-outline">30</span>
+</div>
+<!-- Day 1 to 7 -->
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">1</span>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">2</span>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">3</span>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">4</span>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">5</span>
+</div>
+<!-- Day 6 to 12 -->
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">6</span>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">7</span>
+</div>
+<!-- Day 8: Blue Pill -->
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface">8</span>
+<div class="mt-1 px-1.5 py-1 rounded bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold leading-tight truncate" title="تسليم واجب الخوارزميات (CS204)">
+              • واجب الخوارزميات
+            </div>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">9</span>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">10</span>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-outline">11</span>
+</div>
+<!-- Day 12: Green Pill -->
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface">12</span>
+<div class="mt-1 px-1.5 py-1 rounded bg-primary-fixed text-on-primary-fixed text-[10px] font-bold leading-tight truncate" title="ورشة عمل: أساسيات React للطلاب">
+              • ورشة React الطلابية
+            </div>
+</div>
+<!-- Day 13 to 19 -->
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">13</span>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">14</span>
+</div>
+<!-- Day 15 (CURRENT DAY - HIGHLIGHTED) with 2 events -->
+<div class="min-h-[85px] p-1.5 rounded-md bg-primary/5 text-start flex flex-col gap-1 relative shadow-sm">
+<div class="flex items-center justify-between">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary text-[11px] font-bold flex items-center justify-center">15</span>
+<span class="text-[9px] font-bold text-primary">اليوم</span>
+</div>
+<div class="px-1.5 py-0.5 rounded bg-secondary text-on-secondary text-[9px] font-bold truncate leading-tight" title="امتحان نصفي: هندسة البرمجيات">
+              امتحان هندسة البرمجيات
+            </div>
+<div class="px-1.5 py-0.5 rounded bg-primary text-on-primary text-[9px] font-bold truncate leading-tight" title="حلقة نقاش: التدريب الصيفي">
+              نقاش: التدريب الصيفي
+            </div>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">16</span>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">17</span>
+</div>
+<!-- Day 18: Blue Pill -->
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface">18</span>
+<div class="mt-1 px-1.5 py-1 rounded bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold leading-tight truncate" title="الموعد النهائي لتسليم مسودة المشروع">
+              • تسليم مسودة المشروع
+            </div>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-outline">19</span>
+</div>
+<!-- Day 20 to 26 -->
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">20</span>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">21</span>
+</div>
+<!-- Day 22: Green Pill -->
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface">22</span>
+<div class="mt-1 px-1.5 py-1 rounded bg-primary-fixed text-on-primary-fixed text-[10px] font-bold leading-tight truncate" title="معرض الأندية الطلابية السنوي">
+              • معرض الأندية السنوي
+            </div>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">23</span>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">24</span>
+</div>
+<!-- Day 25: Blue Pill -->
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface">25</span>
+<div class="mt-1 px-1.5 py-1 rounded bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold leading-tight truncate" title="ورشة عمادة التعلم الإلكتروني الرسمية">
+              • ورشة عمادة التعلم
+            </div>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-outline">26</span>
+</div>
+<!-- Day 27 to 31 -->
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">27</span>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">28</span>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">29</span>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">30</span>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors text-start">
+<span class="font-label-sm text-label-sm text-on-surface">31</span>
+</div>
+<!-- Offsets for end of month -->
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-low/40 opacity-40 text-start">
+<span class="font-label-sm text-label-sm text-outline">1</span>
+</div>
+<div class="min-h-[85px] p-1.5 rounded-md bg-surface-container-low/40 opacity-40 text-start">
+<span class="font-label-sm text-label-sm text-outline">2</span>
+</div>
+</div>
+<!-- Mini Analytics Bar inside Calendar -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container-low rounded-lg text-on-surface-variant">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[22px]">verified</span>
+<span class="font-body-sm text-body-sm">لديك <strong>3 اختبارات</strong> وموعد تسليم واحد خلال الأسبوعين القادمين.</span>
+</div>
+<a class="font-label-sm text-label-sm text-secondary hover:underline" href="#">تصدير لتقويم Google</a>
+</div>
+</div>
+</div>
+<!-- Left Column: Upcoming Events Feed (~35-40% -> 5 Cols on XL) -->
+<div class="xl:col-span-5 flex flex-col space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[24px]">event_note</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">الأحداث القادمة المجدولة</h2>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">4 قريبة</span>
+</div>
+<div class="flex flex-col space-y-space-sm">
+<!-- Card 1: Official Exam -->
+<div class="p-space-md bg-surface-container-lowest rounded-lg shadow-sm hover:shadow-md transition-all flex flex-col space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+              حدث رسمي
+            </span>
+<span class="text-outline font-label-sm text-label-sm">كلية الحاسبات • اختبار فصلي</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold mt-1">
+            امتحان منتصف الفصل: أمن الشبكات والمعلومات (CS412)
+          </h3>
+<div class="flex flex-col space-y-1 text-on-surface-variant font-body-sm text-body-sm pt-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">schedule</span>
+<span>الثلاثاء، 15 أكتوبر 2024 • 10:00 ص - 12:00 م</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-outline">location_on</span>
+<span>القاعة الكبرى B-102 (حضوري)</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs mt-2 border-t border-surface-container">
+<a class="inline-flex items-center gap-1 text-secondary font-label-sm text-label-sm hover:underline" href="#">
+<span>الانتقال لصفحة المقرر</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</a>
+<!-- Toggle Notification (Default ON) -->
+<label class="relative inline-flex items-center cursor-pointer gap-2" title="مفعل تلقائياً للأحداث الأكاديمية الرسمية">
+<span class="text-[11px] font-label-sm text-outline">تلقي التنبيهات</span>
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:end-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+</div>
+<!-- Card 2: Student Workshop -->
+<div class="p-space-md bg-surface-container-lowest rounded-lg shadow-sm hover:shadow-md transition-all flex flex-col space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[16px]">groups</span>
+              غير رسمي - مجتمع الطلاب
+            </span>
+<span class="text-outline font-label-sm text-label-sm truncate max-w-[170px]">نادي مطوري الواجهات والذكاء</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold mt-1">
+            ورشة عمل تفاعلية: بناء بورتفوليو مهني وسوق العمل التقني
+          </h3>
+<div class="flex flex-col space-y-1 text-on-surface-variant font-body-sm text-body-sm pt-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">schedule</span>
+<span>الخميس، 17 أكتوبر 2024 • 06:30 م - 08:30 م</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-outline">videocam</span>
+<span>عبر منصة Zoom (رابط مباشر داخل المنصة)</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs mt-2 border-t border-surface-container">
+<a class="inline-flex items-center gap-1 text-primary font-label-sm text-label-sm hover:underline" href="#">
+<span>صفحة الحدث والتسجيل</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</a>
+<!-- Toggle Notification (Default OFF for Unofficial) -->
+<label class="relative inline-flex items-center cursor-pointer gap-2">
+<span class="text-[11px] font-label-sm text-outline">تلقي التنبيهات</span>
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:end-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- Card 3: Project Submission Deadline -->
+<div class="p-space-md bg-surface-container-lowest rounded-lg shadow-sm hover:shadow-md transition-all flex flex-col space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+              حدث رسمي
+            </span>
+<span class="text-outline font-label-sm text-label-sm">قسم نظم المعلومات • مشروع تخرج</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold mt-1">
+            آخر موعد لرفع التقرير النهائي لمشروع التخرج 1
+          </h3>
+<div class="flex flex-col space-y-1 text-on-surface-variant font-body-sm text-body-sm pt-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-error">timer</span>
+<span class="text-error font-bold">الأحد، 20 أكتوبر 2024 • قبل 11:59 مساءً</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-outline">cloud_upload</span>
+<span>بوابة تسليم المشاريع الأكاديمية</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs mt-2 border-t border-surface-container">
+<a class="inline-flex items-center gap-1 text-secondary font-label-sm text-label-sm hover:underline" href="#">
+<span>بوابة تسليم المشاريع</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</a>
+<label class="relative inline-flex items-center cursor-pointer gap-2" title="مفعل تلقائياً">
+<span class="text-[11px] font-label-sm text-outline">تلقائي</span>
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:end-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+</div>
+<!-- Card 4: Peer Revision Study Group -->
+<div class="p-space-md bg-surface-container-lowest rounded-lg shadow-sm hover:shadow-md transition-all flex flex-col space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[16px]">diversity_3</span>
+              غير رسمي - مبادرة طلابية
+            </span>
+<span class="text-outline font-label-sm text-label-sm">مجموعة دراسة النظراء</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold mt-1">
+            جلسة مراجعة جماعية لمادة الرياضيات المتقطعة (Math201)
+          </h3>
+<div class="flex flex-col space-y-1 text-on-surface-variant font-body-sm text-body-sm pt-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">schedule</span>
+<span>الإثنين، 21 أكتوبر 2024 • 04:00 عصراً</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-outline">menu_book</span>
+<span>مكتبة الكلية - قاعة الاستذكار الجماعي 3</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs mt-2 border-t border-surface-container">
+<a class="inline-flex items-center gap-1 text-primary font-label-sm text-label-sm hover:underline" href="#">
+<span>الانضمام للمجموعة</span>
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+</a>
+<label class="relative inline-flex items-center cursor-pointer gap-2">
+<span class="text-[11px] font-label-sm text-outline">تلقي التنبيهات</span>
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:end-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Modal Backdrop / Dialog -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-on-surface/40 backdrop-blur-sm hidden transition-opacity" id="addEventModal">
+<div class="w-full max-w-2xl bg-surface-container-lowest rounded-lg shadow-xl overflow-hidden animate-in fade-in zoom-in duration-200">
+<!-- Modal Header -->
+<div class="p-space-lg bg-surface-container-low flex items-start justify-between border-b border-surface-container-high">
+<div class="flex flex-col space-y-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]">calendar_add_on</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">إضافة حدث جديد إلى التقويم</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            قم بإدخال تفاصيل الحدث وتحديد نوعه لمشاركته مع زملائك أو حفظه في جدولك الشخصي.
+          </p>
+</div>
+<button aria-label="إغلاق" class="w-9 h-9 rounded-full flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" id="closeModalBtn" type="button">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+</div>
+<!-- Modal Body (Form) -->
+<form class="p-space-lg flex flex-col space-y-space-md max-h-[768px] overflow-y-auto" id="addEventForm">
+<!-- Event Title -->
+<div class="flex flex-col space-y-1">
+<label class="font-label-lg text-label-lg text-on-surface" for="eventTitle">عنوان الحدث <span class="text-error">*</span></label>
+<input class="px-space-md py-2.5 rounded bg-surface-container-low text-on-surface font-body-sm text-body-sm outline-none transition-all" id="eventTitle" placeholder="مثال: ورشة تدريبية في تحليل البيانات أو تسليم واجب..." required="" type="text"/>
+</div>
+<!-- Event Type Selector (Radio Cards) -->
+<div class="flex flex-col space-y-1">
+<label class="font-label-lg text-label-lg text-on-surface">نوع الحدث <span class="text-error">*</span></label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<!-- Official Radio Card -->
+<label class="relative flex items-start gap-3 p-space-sm rounded-lg bg-surface-container-low cursor-pointer transition-all hover:bg-surface-container has-[:checked]:bg-secondary-fixed/40">
+<input class="mt-1 text-secondary focus:ring-secondary" name="eventType" type="radio" value="official"/>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-secondary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+                  حدث رسمي
+                </span>
+<span class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">
+                  مخصص للأساتذة وممثلي الكلية، تفعيل تلقائي للتنبيهات الأكاديمية.
+                </span>
+</div>
+</label>
+<!-- Unofficial Student Radio Card -->
+<label class="relative flex items-start gap-3 p-space-sm rounded-lg bg-surface-container-low cursor-pointer transition-all hover:bg-surface-container has-[:checked]:bg-primary-fixed/40">
+<input checked="" class="mt-1 text-primary focus:ring-primary" name="eventType" type="radio" value="unofficial"/>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">groups</span>
+                  غير رسمي (طلابي)
+                </span>
+<span class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">
+                  مبادرات طلابية ولقاءات عامة، تنبيهات اختيارية للمشاركين.
+                </span>
+</div>
+</label>
+</div>
+</div>
+<!-- Event Category Dropdown -->
+<div class="flex flex-col space-y-1">
+<label class="font-label-lg text-label-lg text-on-surface" for="eventCategory">طبيعة الحدث <span class="text-error">*</span></label>
+<select class="px-space-md py-2.5 rounded bg-surface-container-low text-on-surface font-body-sm text-body-sm outline-none transition-all cursor-pointer" id="eventCategory">
+<option value="exam">إمتحان فصلي أو نهائي</option>
+<option value="assignment">تسليم واجب أو تقرير</option>
+<option selected="" value="workshop">ورشة عمل تدريبية</option>
+<option value="study_group">جلسة نقاش وحلقة دراسية</option>
+<option value="activity">فعالية طلابية عامة</option>
+</select>
+</div>
+<!-- Date & Time Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<div class="flex flex-col space-y-1">
+<label class="font-label-lg text-label-lg text-on-surface" for="startDate">تاريخ البدء والوقت <span class="text-error">*</span></label>
+<div class="relative">
+<span class="material-symbols-outlined absolute start-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">calendar_today</span>
+<input class="w-full pe-space-md ps-10 py-2.5 rounded bg-surface-container-low text-on-surface font-body-sm text-body-sm outline-none transition-all" id="startDate" type="datetime-local"/>
+</div>
+</div>
+<div class="flex flex-col space-y-1">
+<label class="font-label-lg text-label-lg text-on-surface" for="endDate">تاريخ الانتهاء / الموعد النهائي</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute start-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">alarm</span>
+<input class="w-full pe-space-md ps-10 py-2.5 rounded bg-surface-container-low text-on-surface font-body-sm text-body-sm outline-none transition-all" id="endDate" type="datetime-local"/>
+</div>
+</div>
+</div>
+<!-- Location / Platform link -->
+<div class="flex flex-col space-y-1">
+<label class="font-label-lg text-label-lg text-on-surface" for="eventLocation">المكان أو رابط الاجتماع الافتراضي</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute start-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">pin_drop</span>
+<input class="w-full pe-space-md ps-10 py-2.5 rounded bg-surface-container-low text-on-surface font-body-sm text-body-sm outline-none transition-all" id="eventLocation" placeholder="مثال: القاعة C-104 أو رابط منصة Zoom" type="text"/>
+</div>
+</div>
+<!-- Description -->
+<div class="flex flex-col space-y-1">
+<label class="font-label-lg text-label-lg text-on-surface" for="eventDescription">وصف مختصر للحدث</label>
+<textarea class="px-space-md py-2.5 rounded bg-surface-container-low text-on-surface font-body-sm text-body-sm outline-none transition-all resize-none" id="eventDescription" placeholder="أضف أهداف الحدث، المتطلبات، أو أي تعليمات خاصة للمشاركين..." rows="3"></textarea>
+</div>
+<!-- Notification Toggle Checkbox -->
+<label class="flex items-center gap-3 cursor-pointer pt-1">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-label-sm text-label-sm text-on-surface">تفعيل التنبيهات تلقائياً للمهتمين والمشاركين المسجلين</span>
+</label>
+<!-- Footer Actions -->
+<div class="flex items-center justify-end gap-space-sm pt-space-md border-t border-surface-container">
+<button class="px-space-lg py-2.5 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-label-lg text-label-lg transition-colors" id="cancelModalBtn" type="button">
+            إلغاء
+          </button>
+<button class="inline-flex items-center gap-2 px-space-lg py-2.5 rounded-full bg-secondary text-on-secondary hover:bg-secondary-container font-label-lg text-label-lg shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98]" type="submit">
+<span class="material-symbols-outlined text-[18px]">done_all</span>
+<span>حفظ ونشر الحدث</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<script>
+    (function() {
+      // Modal interactive trigger logic
+      const modal = document.getElementById('addEventModal');
+      const openBtn = document.getElementById('openModalBtn');
+      const closeBtn = document.getElementById('closeModalBtn');
+      const cancelBtn = document.getElementById('cancelModalBtn');
+      const eventForm = document.getElementById('addEventForm');
+
+      function openModal() {
+        modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      }
+
+      function closeModal() {
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }
+
+      if (openBtn) openBtn.addEventListener('click', openModal);
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+
+      // Close on backdrop click
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal();
+      });
+
+      // Simple form submission demo
+      if (eventForm) {
+        eventForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          closeModal();
+          alert('تمت إضافة الحدث بنجاح إلى جدول التقويم الدراسي.');
+        });
+      }
+
+      // Filter tabs interaction
+      const filterPills = document.querySelectorAll('.filter-pill');
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', function() {
+          filterPills.forEach(p => {
+            p.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+            p.classList.add('bg-surface-container', 'text-on-surface-variant');
+          });
+          this.classList.remove('bg-surface-container', 'text-on-surface-variant');
+          this.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+        });
+      });
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-low border-t border-outline-variant/30 py-space-lg mt-auto"><div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-primary text-[20px]">verified</span><p>© 2025 منصة دعم التعليم الإلكتروني. جميع الحقوق محفوظة.</p></div><div class="flex items-center gap-space-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">سياسة الخصوصية</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">الشروط والأحكام</a><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">الدعم التقني</a></div></div></footer></body></html>
